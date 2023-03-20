@@ -11,6 +11,8 @@ public class UserModel {
 
     @SerializedName("email")
     private String email;
+    @SerializedName("id")
+    private String id;
 
     public String getName() {
         return name;
@@ -23,4 +25,12 @@ public class UserModel {
     public String getEmail() {
         return email;
     }
+
+
+    public String getId()
+    {
+        return id;
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package com.example.tranquilapplication.QuestionsandAnswers;
 
 
-public class QuestionAnswers {
+public class QuestionAnswersClass {
 
     public static String question[] ={
             "I have been able to laugh and see the funny side of things",

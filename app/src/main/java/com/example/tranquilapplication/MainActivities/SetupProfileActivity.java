@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,11 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
-import com.example.tranquilapplication.ResponseModels.Constants;
-import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
-import com.example.tranquilapplication.ResponseModels.NetworkClient;
-import com.example.tranquilapplication.ResponseModels.NetworkService;
-import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
+import com.example.tranquilapplication.NetworkModel.NetworkClient;
+import com.example.tranquilapplication.NetworkModel.NetworkService;
 import com.example.tranquilapplication.ResponseModels.SetupProfileResponseModel;
 
 import java.util.HashMap;
@@ -31,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SetupProfileStep1 extends AppCompatActivity {
+public class SetupProfileActivity extends AppCompatActivity {
 
 
     //Declaring variables
@@ -66,7 +61,7 @@ public class SetupProfileStep1 extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SetupProfileStep1.this, MainActivity.class);
+                Intent intent = new Intent(SetupProfileActivity.this, MainActivity.class);
                 startActivity(intent);
 
             }
@@ -83,7 +78,7 @@ public class SetupProfileStep1 extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 // Note that months are indexed from 0. So, 0 means January, 1 means february, 2 means march etc.
                 String msg = dayOfMonth + "/" + (month + 1) + "/" + year;
-                Toast.makeText(SetupProfileStep1.this, msg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SetupProfileActivity.this, msg, Toast.LENGTH_SHORT).show();
                 txtHidden.setText(msg);
             }
         });
@@ -92,7 +87,7 @@ public class SetupProfileStep1 extends AppCompatActivity {
     // Display loading bar and parsing the user input data to the server
     private void profile(HashMap<String, String> params) {
 
-        final ProgressDialog progressDialog = new ProgressDialog(SetupProfileStep1.this);
+        final ProgressDialog progressDialog = new ProgressDialog(SetupProfileActivity.this);
         progressDialog.setTitle("Please wait");
         progressDialog.setMessage("do not close the app");
         progressDialog.setCancelable(false);
@@ -107,12 +102,15 @@ public class SetupProfileStep1 extends AppCompatActivity {
                 SetupProfileResponseModel responseBody = response.body();
                 if (responseBody != null) {
                     if (responseBody.getSuccess().equals("1")) {
-                        Toast.makeText(SetupProfileStep1.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SetupProfileStep1.this, RegisterActivity.class);
+                        Toast.makeText(SetupProfileActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SetupProfileActivity.this, RegisterActivity.class);
+                        intent.putExtra("DepressionType", radioButton.getText().toString());
+                        intent.putExtra("DeliveryDate", txtHidden.getText().toString());
+
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(SetupProfileStep1.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SetupProfileActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
                 progressDialog.dismiss();
@@ -145,9 +143,9 @@ public class SetupProfileStep1 extends AppCompatActivity {
 
 
                 if (radioGroup.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(SetupProfileStep1.this, "Please Select which phase you are going through!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetupProfileActivity.this, "Please Select which phase you are going through!", Toast.LENGTH_SHORT).show();
                 }  else if (txtHidden.getText().toString().equals("")) {
-                    Toast.makeText(SetupProfileStep1.this, "Select Date", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetupProfileActivity.this, "Select Date", Toast.LENGTH_SHORT).show();
 
 
                 } else {
@@ -158,7 +156,7 @@ public class SetupProfileStep1 extends AppCompatActivity {
                     radioButton = (RadioButton) findViewById(selectedId);
 
 
-                    Toast.makeText(SetupProfileStep1.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetupProfileActivity.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
 
                     HashMap<String, String> params = new HashMap<>();
                     params.put("depressionType", radioButton.getText().toString());

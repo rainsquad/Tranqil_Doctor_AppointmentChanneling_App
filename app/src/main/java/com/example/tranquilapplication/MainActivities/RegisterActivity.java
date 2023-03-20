@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
-import com.example.tranquilapplication.ResponseModels.NetworkClient;
-import com.example.tranquilapplication.ResponseModels.NetworkService;
+import com.example.tranquilapplication.NetworkModel.NetworkClient;
+import com.example.tranquilapplication.NetworkModel.NetworkService;
 
 import java.util.HashMap;
 
@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText inputName, inputPassword, inputemail,inputMobile, inputfamilynumber;
     Button buttonRegister;
-    TextView linklogin;
+    TextView linklogin,abcd;
 
     protected TextView txtPatient;
 
@@ -44,7 +44,23 @@ public class RegisterActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.txtPwd);
         linklogin = findViewById(R.id.lnkLogin);
         txtPatient =findViewById(R.id.txtUserPatient);
+        abcd = findViewById(R.id.abcd);
         txtPatient.setText("Patient");
+
+        Intent intent= getIntent();
+        String a = intent.getStringExtra("DepressionType");
+        String b = intent.getStringExtra("DeliveryDate");
+
+
+
+
+
+
+
+
+
+
+
         linklogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +96,8 @@ public class RegisterActivity extends AppCompatActivity {
                     params.put("mobile", inputMobile.getText().toString());
                     params.put("familymobile", inputfamilynumber.getText().toString());
                     params.put("userCategory", txtPatient.getText().toString());
+                    params.put("depressionType",a);
+                    params.put("deliverydate",b);
 
                     register(params);
                 }

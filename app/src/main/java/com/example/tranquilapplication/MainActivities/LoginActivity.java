@@ -18,8 +18,8 @@ import android.widget.Toast;
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Constants;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
-import com.example.tranquilapplication.ResponseModels.NetworkClient;
-import com.example.tranquilapplication.ResponseModels.NetworkService;
+import com.example.tranquilapplication.NetworkModel.NetworkClient;
+import com.example.tranquilapplication.NetworkModel.NetworkService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -113,27 +113,20 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCE_NAME, MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putBoolean(Constants.KEY_ISE_LOGGED_IN, true);
-                     //   editor.putString(Constants.KEY_NAME, responseBody.getUserDetailObject().getUserDetails().get(0).getName() + " " + responseBody.getUserDetailObject().getUserDetails().get(0).getMobile());
+                      // editor.putString(Constants.KEY_NAME, responseBody.getUserDetailObject().getUserDetails().get(0).getName() + " " + responseBody.getUserDetailObject().getUserDetails().get(0).getId());
                         /*editor.putString(Constants.KEY_LASTNAME, responseBody.getUserDetailObject().getUserDetails().get(0).getLastName());*/
 
-
                         editor.putString(Constants.KEY_NAME, responseBody.getUserDetailObject().getUserDetails().get(0).getName());
+                        editor.putString(Constants.KEY_ID, responseBody.getUserDetailObject().getUserDetails().get(0).getId() );
 
                         editor.putString(Constants.KEY_EMAIL, responseBody.getUserDetailObject().getUserDetails().get(0).getEmail());
+
                         editor.apply();
 
                         Toast.makeText(LoginActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
 
 
-
-
-
-
-
-
-
-
-                        startActivity(new Intent(getApplicationContext(), MainMenu.class));
+                        startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();

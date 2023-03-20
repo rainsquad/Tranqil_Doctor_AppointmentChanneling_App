@@ -1,4 +1,9 @@
-package com.example.tranquilapplication.ResponseModels;
+package com.example.tranquilapplication.NetworkModel;
+
+import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
+import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
+import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
+import com.example.tranquilapplication.ResponseModels.SetupProfileResponseModel;
 
 import java.util.HashMap;
 
@@ -20,6 +25,11 @@ public interface NetworkService {
     @FormUrlEncoded
     @POST("profile.php")
     Call<SetupProfileResponseModel> profile(@FieldMap HashMap<String, String> params);
+
+    @FormUrlEncoded
+    @POST("TestHistory.php")
+    Call<QuestionnaireResponseModel> upload(@FieldMap HashMap<String, String> params);
+
 
 
 }

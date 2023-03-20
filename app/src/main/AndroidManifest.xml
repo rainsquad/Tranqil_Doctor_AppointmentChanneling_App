@@ -14,8 +14,18 @@
         android:theme="@style/Theme.TranquilApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivities.Questionnaire1"
+            android:name=".MainActivities.ScreenTestResutsActivity"
             android:exported="false" />
+        <activity
+            android:name=".MainActivities.ScreenTestIntroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.ScreenTestStartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.QuestionnaireActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivities.ScreenTestStartActivity" />
         <activity
             android:name=".MainActivities.LoginActivity"
             android:exported="false" />
@@ -26,10 +36,10 @@
         <!-- android:exported="false" -->
         <!-- android:label="@string/title_activity_login" /> -->
         <activity
-            android:name=".MainActivities.MainMenu"
+            android:name=".MainActivities.MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivities.SetupProfileStep1"
+            android:name=".MainActivities.SetupProfileActivity"
             android:exported="false"
             android:parentActivityName=".MainActivities.MainActivity" />
         <activity
