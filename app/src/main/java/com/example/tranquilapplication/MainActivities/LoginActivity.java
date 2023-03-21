@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         editor.putString(Constants.KEY_NAME, responseBody.getUserDetailObject().getUserDetails().get(0).getName());
                         editor.putString(Constants.KEY_ID, responseBody.getUserDetailObject().getUserDetails().get(0).getId() );
+                        editor.putString(Constants.KEY_DEPRESSION_TYPE, responseBody.getUserDetailObject().getUserDetails().get(0).getDepressionType() );
 
                         editor.putString(Constants.KEY_EMAIL, responseBody.getUserDetailObject().getUserDetails().get(0).getEmail());
 

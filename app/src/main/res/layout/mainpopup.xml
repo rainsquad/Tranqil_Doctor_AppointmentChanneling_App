@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="355dp"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background=""
  >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="center"
         android:background="@drawable/popupbg"
-        android:padding="@dimen/_15sdp"
+       android:padding="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -20,47 +19,59 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-
-            android:text="Be gracious and considerate"
+            android:gravity="center"
+            android:text="TRANQUIL RECOMMENDATION"
             android:textColor="@color/black"
-            android:textSize="@dimen/_16sdp" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:text="You may request up to 3 items each week. This is done so to make it available for everyone! The remaining number of items you make request will be reflected here.
-\n\nRemember to only take what you need.❤"
-            android:textSize="@dimen/_10sdp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:text="We have identified that your EPDS score is a bit higher than what is normal and there can be a little risk of depression."
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:text="There is nothing to worry because we have a bunch of experienced and qualified doctors who have registered and willing to treat you ❤"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundbtn"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp">
 
-            <TextView
-                android:id="@+id/Skip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_5sdp"
-                android:text="Skip" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/icon_doctor_white" />
 
             <TextView
                 android:id="@+id/Gotit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_5sdp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="35dp"
+                android:paddingLeft="10dp"
                 android:textColor="@color/white"
-                android:background="@drawable/roundbtngrey"
                 android:layout_alignParentEnd="true"
-                android:text="Got it" />
+                android:text="VIEW DOCTORS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

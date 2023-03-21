@@ -1,5 +1,6 @@
 package com.example.tranquilapplication.MainActivities;
 
+import static com.example.tranquilapplication.ResponseModels.Constants.KEY_DEPRESSION_TYPE;
 import static com.example.tranquilapplication.ResponseModels.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
@@ -56,11 +57,14 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
     SharedPreferences sharedPreferences;
 
     private static final String KEY_ID = "id";
+
+    private  static  final  String  KEY_DEPRESSION_TYPE= "depressionType";
     Date todaydate = Calendar.getInstance().getTime();
 
     RelativeLayout layout;
 
     String message;
+    String depressionType;
 
 
     String selectedAnswer = "";
@@ -77,7 +81,8 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
         /* Get user details using shared preferances*/
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String id = sharedPreferences.getString(KEY_ID, null);
-        userid.setText(id);
+        String Depressiontype = sharedPreferences.getString(KEY_DEPRESSION_TYPE,null);
+        userid.setText(Depressiontype);
 
 
         totalQuestionsTextView = findViewById(R.id.total_question);
@@ -192,14 +197,9 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
             }
         });
         TextView Skip, Gotit;
-        Skip = popUpView.findViewById(R.id.Skip);
+
         Gotit = popUpView.findViewById(R.id.Gotit);
-        Skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-            }
-        });
+
         Gotit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -240,6 +240,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
 
                         Intent intent = new Intent(QuestionnaireActivity.this, ScreenTestResutsActivity.class);
                         intent.putExtra("message",score);
+                        intent.putExtra("depressionType",userid.getText().toString());
                         startActivity(intent);
                         finish();
 

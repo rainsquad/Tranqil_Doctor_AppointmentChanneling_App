@@ -13,6 +13,10 @@ public class UserModel {
     private String email;
     @SerializedName("id")
     private String id;
+    @SerializedName("depressionType")
+    private String depressionType;
+
+
 
     public String getName() {
         return name;
@@ -30,6 +34,11 @@ public class UserModel {
     public String getId()
     {
         return id;
+    }
+
+    public String getDepressionType()
+    {
+        return depressionType;
     }
 
 

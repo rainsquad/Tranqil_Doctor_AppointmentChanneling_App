@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:id="@+id/layoutQuestionarie"
     android:orientation="vertical"
-    android:padding="40dp"
-    tools:context=".MainActivities.QuestionnaireActivity">
+      tools:context=".MainActivities.QuestionnaireActivity">
 
     <TextView
         android:id="@+id/total_question"
         android:layout_width="153dp"
         android:layout_height="26dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="218dp"
         android:text="Total Questions : "
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/userid"
@@ -41,13 +41,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="80dp"
         android:text="This will be the question"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/choices_layout"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <LinearLayout
@@ -55,11 +58,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="120dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/submit_btn"
-        tools:layout_editor_absoluteX="40dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/answerA"
@@ -105,12 +111,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/choices_layout"
+
+
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/roundbtn"
-        android:text="Submit"
+        android:text="NEXT"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
