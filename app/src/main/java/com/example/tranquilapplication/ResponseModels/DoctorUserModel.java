@@ -2,7 +2,7 @@ package com.example.tranquilapplication.ResponseModels;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DoctorScheduleModel {
+public class DoctorUserModel {
     @SerializedName("bookedtime")
     private String bookedtime;
 

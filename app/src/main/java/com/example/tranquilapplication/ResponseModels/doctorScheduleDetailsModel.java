@@ -7,9 +7,9 @@ import java.util.List;
 
 public class doctorScheduleDetailsModel {
     @SerializedName("Doc_Schedule_Details")
-    private List<DoctorScheduleModel> DoctorScheduleDetails;
+    private List<DoctorUserModel> DoctorScheduleDetails;
 
-    public List<DoctorScheduleModel> getDoctorScheduleDetails() {
+    public List<DoctorUserModel> getDoctorScheduleDetails() {
         return DoctorScheduleDetails;
     }
 }
