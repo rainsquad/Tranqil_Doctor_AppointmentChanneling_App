@@ -12,14 +12,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Constants;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
-import com.example.tranquilapplication.NetworkModel.NetworkClient;
-import com.example.tranquilapplication.NetworkModel.NetworkService;
+import com.example.tranquilapplication.Models.NetworkClient;
+import com.example.tranquilapplication.Models.NetworkService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText inputEmail, inputPassword;
     Button buttonLogin;
     TextView textCreateAccount;
+
+    ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,15 +70,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            LoginActivity.super.onBackPressed();
+            }
+        });
+
         buttonLogin = findViewById(R.id.btnlogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (inputEmail.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
-                } /*else if (!emailValidator(inputEmail.getText().toString())) {
-                    Toast.makeText(MainActivity.this, "Please Field Valid Email", Toast.LENGTH_SHORT).show();
-                }*/ else if (inputPassword.getText().toString().equals("")) {
+//                } else if (!emailValidator(inputEmail.getText().toString())) {
+//                    Toast.makeText(LoginActivity.this, "Please Field Valid Email", Toast.LENGTH_SHORT).show();
+//                } else if (inputPassword.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                 } else {
                     login();
@@ -143,13 +155,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public boolean emailValidator(String email) {
-        Pattern pattern;
-        Matcher matcher;
-        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        pattern = Pattern.compile(EMAIL_PATTERN);
-        matcher = pattern.matcher(email);
-        return matcher.matches();
-
-    }
+//    public boolean emailValidator(String email) {
+//        Pattern pattern;
+//        Matcher matcher;
+//        final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+//        pattern = Pattern.compile(EMAIL_PATTERN);
+//        matcher = pattern.matcher(email);
+//        return matcher.matches();
+//
+//    }
 }

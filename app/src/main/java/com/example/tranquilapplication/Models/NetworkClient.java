@@ -1,4 +1,4 @@
-package com.example.tranquilapplication.NetworkModel;
+package com.example.tranquilapplication.Models;
 
 import com.example.tranquilapplication.ResponseModels.Constants;
 

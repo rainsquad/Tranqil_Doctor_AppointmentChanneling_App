@@ -9,13 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
-import com.example.tranquilapplication.NetworkModel.NetworkClient;
-import com.example.tranquilapplication.NetworkModel.NetworkService;
+import com.example.tranquilapplication.Models.NetworkClient;
+import com.example.tranquilapplication.Models.NetworkService;
 
 import java.util.HashMap;
 
@@ -29,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputName, inputPassword, inputemail,inputMobile, inputfamilynumber;
     Button buttonRegister;
     TextView linklogin,abcd;
-
+    ImageView imgBack;
     protected TextView txtPatient;
 
     @Override
@@ -45,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         linklogin = findViewById(R.id.lnkLogin);
         txtPatient =findViewById(R.id.txtUserPatient);
         abcd = findViewById(R.id.abcd);
+        imgBack = findViewById(R.id.imgBack);
+
         txtPatient.setText("Patient");
 
         Intent intent= getIntent();
@@ -54,7 +57,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                RegisterActivity.super.onBackPressed();
+            }
+        });
 
 
 

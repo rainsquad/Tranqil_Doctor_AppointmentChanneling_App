@@ -36,7 +36,7 @@ public class ScreenTestIntroActivity extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(ScreenTestIntroActivity.this,ScreenTestStartActivity.class);
+                ScreenTestIntroActivity.super.onBackPressed();
             }
         });
 

@@ -116,9 +116,10 @@
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EPDS"
+                            android:text="EPDS screening"
+                            android:gravity="center"
                             android:textColor="#6f6f6f"
-                            android:textSize="16sp">
+                            android:textSize="14sp">
 
                         </TextView>
 
@@ -137,8 +138,17 @@
                     app:cardElevation="20dp"
 
                     >
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:src="@drawable/icon_crown"
+
+                        />
+
 
                     <LinearLayout
+                        android:id="@+id/ClickMidwives"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -180,6 +190,7 @@
                     >
 
                     <LinearLayout
+                        android:id="@+id/ClickDoctors"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -268,8 +279,16 @@
                     app:cardElevation="20dp"
 
                     >
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:src="@drawable/icon_crown"
+
+                        />
 
                     <LinearLayout
+                        android:id="@+id/clickForum"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

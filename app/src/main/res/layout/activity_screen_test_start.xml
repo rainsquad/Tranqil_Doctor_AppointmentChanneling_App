@@ -10,12 +10,14 @@
 
 
     <ImageView
-        android:layout_width="44dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
+        android:id="@+id/imgBack"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/iconleftarrow"
-
+        android:background="@drawable/round_back_button"
+        android:src="@drawable/back"
+        android:padding="5dp"
         android:outlineSpotShadowColor="@color/black"
         android:paddingLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,40 +1,29 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.ResponseModels.Constants.KEY_DEPRESSION_TYPE;
 import static com.example.tranquilapplication.ResponseModels.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.tranquilapplication.NetworkModel.NetworkClient;
-import com.example.tranquilapplication.NetworkModel.NetworkService;
+import com.example.tranquilapplication.Models.NetworkClient;
+import com.example.tranquilapplication.Models.NetworkService;
 import com.example.tranquilapplication.QuestionsandAnswers.QuestionAnswersClass;
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Constants;
-import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
-import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
-import com.google.android.material.color.utilities.QuantizerWsmeans;
 
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -46,27 +35,17 @@ import retrofit2.Response;
 
 public class QuestionnaireActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView totalQuestionsTextView, userid;
-    TextView questionTextView;
-    Button ansA, ansB, ansC, ansD;
-    Button submitBtn;
-
-    int score = 0;
+    TextView userid, questionTextView;
+    ImageView imgBack;
+    Button ansA, ansB, ansC, ansD, submitBtn, btn_restart;
     int totalQuestion = QuestionAnswersClass.question.length;
-    int currentQuestionIndex = 0;
+    int currentQuestionIndex, score = 0;
     SharedPreferences sharedPreferences;
-
     private static final String KEY_ID = "id";
 
-    private  static  final  String  KEY_DEPRESSION_TYPE= "depressionType";
+    private static final String KEY_DEPRESSION_TYPE = "depressionType";
     Date todaydate = Calendar.getInstance().getTime();
-
     RelativeLayout layout;
-
-    String message;
-    String depressionType;
-
-
     String selectedAnswer = "";
 
 
@@ -75,17 +54,18 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire1);
         userid = findViewById(R.id.userid);
+        imgBack = findViewById(R.id.imgBack);
+        btn_restart = findViewById(R.id.btn_restart);
 
-        // layout = findViewById(R.id.layoutQuestionarie);
 
         /* Get user details using shared preferances*/
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String id = sharedPreferences.getString(KEY_ID, null);
-        String Depressiontype = sharedPreferences.getString(KEY_DEPRESSION_TYPE,null);
+        String Depressiontype = sharedPreferences.getString(KEY_DEPRESSION_TYPE, null);
         userid.setText(Depressiontype);
 
 
-        totalQuestionsTextView = findViewById(R.id.total_question);
+
         questionTextView = findViewById(R.id.question);
         ansA = findViewById(R.id.answerA);
         ansB = findViewById(R.id.answerB);
@@ -99,12 +79,24 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        totalQuestionsTextView.setText("Total questions : " + totalQuestion);
 
         loadNewQuestion();
 
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuestionnaireActivity.super.onBackPressed();
+            }
+        });
+        btn_restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                restartQuiz();
+            }
+        });
 
     }
+
 
     @Override
     public void onClick(View view) {
@@ -114,6 +106,8 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
         ansB.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
         ansC.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
         ansD.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
+
+     //Validating answer selection ( User should select an answer before pressing submit button, and also user should answer all 10 questions)
 
         Button clickedButton = (Button) view;
         if (clickedButton.getId() == R.id.submit_btn) {
@@ -149,11 +143,14 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
 
     }
 
+
+    //Loading the next question from data set
     void loadNewQuestion() {
 
         if (currentQuestionIndex == totalQuestion) {
 
             finishQuiz();
+            submitBtn.setVisibility(View.INVISIBLE);
             //   CreatepopUpwindow();
 
             return;
@@ -169,53 +166,11 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
 
     void finishQuiz() {
         uploadDataset();
-//        String passStatus = "";
-//        if (score > totalQuestion * 0.60) {
-//            passStatus = "Passed";
-//        } else {
-//            passStatus = "Failed";
-//        }
-//
-//        new AlertDialog.Builder(this).setTitle(passStatus).setMessage("Score is " + score + " out of " + totalQuestion * 3).setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz()).setCancelable(false).show();
-
 
     }
 
-    private void CreatepopUpwindow() {
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popUpView = inflater.inflate(R.layout.mainpopup, null);
 
-        int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true;
-        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
-        layout.post(new Runnable() {
-            @Override
-            public void run() {
-                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
-
-            }
-        });
-        TextView Skip, Gotit;
-
-        Gotit = popUpView.findViewById(R.id.Gotit);
-
-        Gotit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // write code anything you want
-            }
-        });
-        // and if you want to close popup when touch Screen
-        popUpView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
-            }
-        });
-    }
-
+// upload the test marks, date, user id server database
     void uploadDataset() {
         HashMap<String, String> params = new HashMap<>();
         params.put("testmarks", String.valueOf(score));
@@ -236,11 +191,17 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
                 if (responseBody != null) {
                     if (responseBody.getSuccess().equals("1")) {
                         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCE_NAME, MODE_PRIVATE);
-                        Toast.makeText(QuestionnaireActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(QuestionnaireActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(QuestionnaireActivity.this, ScreenTestResutsActivity.class);
-                        intent.putExtra("message",score);
-                        intent.putExtra("depressionType",userid.getText().toString());
+
+
+                        //get total marks and type of depression from previous activities
+                        intent.putExtra("message", score);
+                        intent.putExtra("depressionType", userid.getText().toString());
+
+
+
                         startActivity(intent);
                         finish();
 

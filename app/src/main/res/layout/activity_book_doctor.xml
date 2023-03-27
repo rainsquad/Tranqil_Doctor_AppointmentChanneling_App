@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivities.BookDoctorActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="349dp"
+                    android:background="@drawable/round_back_button"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:padding="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BOOK A VIDEO CALL WITH,"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+
+                </RelativeLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:rowCount="6"
+
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="20dp"
+
+
+                        >
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+
+                            <ImageView
+                                android:id="@+id/imgView1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+
+                                />
+
+
+                            <TextView
+                                android:id="@+id/docName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/timeslotHidden"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:gravity="left"
+                                android:text=""
+                                android:visibility="invisible"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/UseridHidden"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:gravity="left"
+                                android:text=""
+                                android:visibility="invisible"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/DateselectHidden"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:gravity="left"
+                                android:text=""
+                                android:visibility="invisible"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="Consultant Phychiatrist"
+                                android:textColor="@color/Red"
+                                android:textSize="13sp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:text="National Institute of mental health - colombo"
+                                android:textColor="@color/Red"
+                                android:textSize="13sp" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/icons_languages"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Speak - English, Tamil, Sinhala"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp"
+
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="20dp"
+
+
+                        />
+
+
+                </GridLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp" />
+
+
+                <!--    Design of scroll down card view-->
+
+            </LinearLayout>
+
+            <CalendarView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/calenderView"
+                android:padding="10dp"
+                android:elevation="80dp"
+
+
+                />
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:clickable="true"
+                android:rowCount="3">
+
+                <Button
+                    android:id="@+id/txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="08.00 am - 09.00 am"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="09.00 am - 10.00 am"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/txt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="10.00 am - 11.00 am"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/txt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="01.00 pm - 02.00 pm"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/txt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="02.00 pm - 03.00 pm"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+                <Button
+                    android:id="@+id/txt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/time_select_round_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="03.00 pm - 04.00 pm"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="55dp"
+                android:paddingRight="55dp"
+                android:background="@drawable/roundbtn"
+                android:gravity="center"
+                android:text="BOOK VIDEO APPOINMENT"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.cardview.widget.CardView>

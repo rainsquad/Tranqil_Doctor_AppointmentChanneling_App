@@ -6,13 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.tranquilapplication.R;
 
 public class ScreenTestStartActivity extends AppCompatActivity {
 
     Button btnStartScreening, btnPreviousResults;
-
+    ImageView imgBack;
 
 
 
@@ -24,6 +25,16 @@ public class ScreenTestStartActivity extends AppCompatActivity {
 
         btnStartScreening = findViewById(R.id.btnstartscreening);
         btnPreviousResults = findViewById(R.id.btnpreviousresults);
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScreenTestStartActivity.super.onBackPressed();
+            }
+        });
+
+
 
         btnStartScreening.setOnClickListener(new View.OnClickListener() {
             @Override

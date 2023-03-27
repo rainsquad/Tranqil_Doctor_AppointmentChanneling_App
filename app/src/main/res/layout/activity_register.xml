@@ -20,8 +20,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="43dp"
+            android:id="@+id/imgBack"
+            android:layout_width="42dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="29dp"
@@ -30,6 +30,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:padding="5dp"
+            android:background="@drawable/round_back_button"
             app:srcCompat="@drawable/back" />
 
         <TextView

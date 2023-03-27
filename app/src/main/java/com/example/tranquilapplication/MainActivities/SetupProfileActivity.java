@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
-import com.example.tranquilapplication.NetworkModel.NetworkClient;
-import com.example.tranquilapplication.NetworkModel.NetworkService;
+import com.example.tranquilapplication.Models.NetworkClient;
+import com.example.tranquilapplication.Models.NetworkService;
 import com.example.tranquilapplication.ResponseModels.SetupProfileResponseModel;
 
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class SetupProfileActivity extends AppCompatActivity {
     private Button btnSubmit;
     private RadioButton radioButton, rbAntepartum, rbPostpartum;
     private RadioGroup radioGroup;
-    private CalendarView calView;
+
     private TextView txtHidden;
 
     private CalendarView calendarView;
@@ -46,11 +46,11 @@ public class SetupProfileActivity extends AppCompatActivity {
 
         //Initiating variables
 
-        imgBack = findViewById(R.id.imageView4);
+        imgBack = findViewById(R.id.imgBack);
         btnSubmit = findViewById(R.id.btnSubmit1);
         rbAntepartum = findViewById(R.id.rbAntepartum);
         rbPostpartum = findViewById(R.id.rbPostpartum);
-        calView = findViewById(R.id.calendarView);
+
 
         calendarView = findViewById(R.id.calendarView);
         txtHidden = findViewById(R.id.txtHidden);

@@ -1,5 +1,6 @@
-package com.example.tranquilapplication.NetworkModel;
+package com.example.tranquilapplication.Models;
 
+import com.example.tranquilapplication.ResponseModels.DoctorScheduleResponseModel;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
@@ -29,6 +30,10 @@ public interface NetworkService {
     @FormUrlEncoded
     @POST("TestHistory.php")
     Call<QuestionnaireResponseModel> upload(@FieldMap HashMap<String, String> params);
+
+    @FormUrlEncoded
+    @POST("DoctorSchedule.php")
+    Call<DoctorScheduleResponseModel> doctorschedule(@FieldMap HashMap<String, String> params);
 
 
 
