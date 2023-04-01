@@ -17,13 +17,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
-import com.example.tranquilapplication.ResponseModels.Constants;
+import com.example.tranquilapplication.Services.Constants;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
-import com.example.tranquilapplication.Models.NetworkClient;
-import com.example.tranquilapplication.Models.NetworkService;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.example.tranquilapplication.Services.NetworkClient;
+import com.example.tranquilapplication.Services.NetworkService;
 
 import retrofit2.Call;
 import retrofit2.Callback;

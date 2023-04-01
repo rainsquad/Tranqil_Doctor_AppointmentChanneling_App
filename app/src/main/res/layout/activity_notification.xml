@@ -6,4 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivities.NotificationActivity">
 
+    <EditText
+        android:id="@+id/docid"
+        android:layout_width="200dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="97dp"
+
+
+        android:layout_marginRight="97dp"
+        android:layout_marginBottom="494dp"
+        android:hint="Docid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/patientid"
+        android:layout_width="200dp"
+        android:layout_height="56dp"
+
+
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="368dp"
+        android:hint="Patient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/Bookeddate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="51dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/Bookedtime"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/Bookedtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="346dp"
+        android:layout_marginBottom="208dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="227dp"
+        android:layout_marginBottom="114dp"
+
+        android:background="@drawable/roundbtn"
+        android:text="suvmit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

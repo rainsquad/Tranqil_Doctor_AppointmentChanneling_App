@@ -1,6 +1,4 @@
-package com.example.tranquilapplication.Models;
-
-import com.example.tranquilapplication.ResponseModels.Constants;
+package com.example.tranquilapplication.Services;
 
 import java.util.concurrent.TimeUnit;
 

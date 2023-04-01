@@ -2,12 +2,19 @@ package com.example.tranquilapplication.ResponseModels;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DoctorScheduleResponseModel {
+public class DocResponseModel {
     @SerializedName("success")
     private String success;
 
     @SerializedName("message")
     private String message;
+
+    @SerializedName("user_details")
+    private DocDetailsModel docDetailObject;
+
+    public DocDetailsModel getDocDetailObject() {
+        return docDetailObject;
+    }
 
     public String getSuccess() {
         return success;

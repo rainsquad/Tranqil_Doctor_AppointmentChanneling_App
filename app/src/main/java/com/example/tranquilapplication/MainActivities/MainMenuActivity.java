@@ -1,6 +1,7 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.ResponseModels.Constants.PREFERENCE_NAME;
+import static com.example.tranquilapplication.Services.Constants.KEY_BOOKED_DATE;
+import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +9,6 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tranquilapplication.R;
@@ -31,9 +30,10 @@ public class MainMenuActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     TextView txtLoggedInUser;
 
-
+    CardView therapy;
     private static final String KEY_NAME = "name";
     private static final String KEY_ID = "id";
+
     BottomNavigationView bottomNavigationView;
 
     LinearLayout MidWives,clickForum;
@@ -52,7 +52,7 @@ public class MainMenuActivity extends AppCompatActivity {
         MidWives = findViewById(R.id.ClickMidwives);
         clickForum = findViewById(R.id.clickForum);
         layout = findViewById(R.id.linearLayout4);
-
+        therapy = findViewById(R.id.therapy);
 
 
 
@@ -61,9 +61,7 @@ public class MainMenuActivity extends AppCompatActivity {
         String name = sharedPreferences.getString(KEY_NAME, null);
         String id = sharedPreferences.getString(KEY_ID,null);
 
-
-        txtLoggedInUser.setText(name  );
-
+        txtLoggedInUser.setText(name);
 
         selectEPDS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +80,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
             }
         });
+
 
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override

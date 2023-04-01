@@ -25,6 +25,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
     Button btnNextStep;
 
     LinearLayout popupbg;
+
     Dialog mDialog;
     RelativeLayout layout;
 
@@ -44,7 +45,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 
         //Get the score value from previous activity
         Intent myintent = getIntent();
-        int score = myintent.getIntExtra("message", 0);
+       int score = myintent.getIntExtra("message", 0);
         String depressionType = myintent.getStringExtra("depressionType");
 
         txtView.setText("YOUR SCORE IS : " + score + "/30  ");
@@ -66,15 +67,15 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
             public void onClick(View view) {
 //               Intent intentmy = new Intent(ScreenTestResutsActivity.this,Testpopupwindow.class);
 //               startActivity(intentmy);
-                CreatepopUpwindow();
+                CreatepopUpwindow(score);
             }
         });
 
 
     }
+    //pop up window
 
-
-    private void CreatepopUpwindow() {
+    private void CreatepopUpwindow(int score) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.mainpopup, null);
 
@@ -90,7 +91,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
             }
         });
 
-            TextView Skip, Gotit;
+            TextView  Gotit;
 
             Gotit = popUpView.findViewById(R.id.Gotit);
 
@@ -98,6 +99,8 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent doc = new Intent(ScreenTestResutsActivity.this, DoctorDetailsActivity.class);
+
+                    doc.putExtra("testMarks",score);
                     startActivity(doc);
 
 

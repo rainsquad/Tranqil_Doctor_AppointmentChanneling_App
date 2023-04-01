@@ -1,6 +1,6 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.ResponseModels.Constants.PREFERENCE_NAME;
+import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,11 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.tranquilapplication.Models.NetworkClient;
-import com.example.tranquilapplication.Models.NetworkService;
+import com.example.tranquilapplication.Services.NetworkClient;
+import com.example.tranquilapplication.Services.NetworkService;
 import com.example.tranquilapplication.QuestionsandAnswers.QuestionAnswersClass;
 import com.example.tranquilapplication.R;
-import com.example.tranquilapplication.ResponseModels.Constants;
+import com.example.tranquilapplication.Services.Constants;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
 
 import java.util.Calendar;
@@ -62,7 +62,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String id = sharedPreferences.getString(KEY_ID, null);
         String Depressiontype = sharedPreferences.getString(KEY_DEPRESSION_TYPE, null);
-        userid.setText(Depressiontype);
+        userid.setText(id);
 
 
 

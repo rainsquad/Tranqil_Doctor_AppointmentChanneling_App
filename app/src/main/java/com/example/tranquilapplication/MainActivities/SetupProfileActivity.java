@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
-import com.example.tranquilapplication.Models.NetworkClient;
-import com.example.tranquilapplication.Models.NetworkService;
+import com.example.tranquilapplication.Services.NetworkClient;
+import com.example.tranquilapplication.Services.NetworkService;
 import com.example.tranquilapplication.ResponseModels.SetupProfileResponseModel;
 
 import java.util.HashMap;

@@ -33,7 +33,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         crd6 = findViewById(R.id.crd6);
 
 
-
+        Intent doc = getIntent();
+        int score = doc.getIntExtra("testMarks", 0);
 
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -62,6 +63,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                     Intent intentcard1  = new Intent(DoctorDetailsActivity.this,BookDoctorActivity.class);
                     intentcard1.putExtra("doc1","Dr.Sachini Jayawardane");
                     intentcard1.putExtra("doc1img",R.drawable.doctor1);
+                    intentcard1.putExtra("testMarksFinal",score);
+
                     startActivity(intentcard1);
                 }
             });

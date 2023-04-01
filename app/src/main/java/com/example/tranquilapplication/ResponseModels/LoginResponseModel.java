@@ -13,10 +13,10 @@ public class LoginResponseModel {
 
     @SerializedName("user_details")
     private UserDetailModel userDetailObject;
-
-    public UserDetailModel getUserDetailObject() {
+ public UserDetailModel getUserDetailObject() {
         return userDetailObject;
     }
+
 
     public String getSuccess() {
         return success;

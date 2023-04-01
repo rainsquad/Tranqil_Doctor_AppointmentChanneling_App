@@ -1,4 +1,4 @@
-package com.example.tranquilapplication.ResponseModels;
+package com.example.tranquilapplication.Services;
 
 
 public class Constants {
@@ -12,6 +12,15 @@ public class Constants {
     public static final String KEY_ID= "id";
 
     public  static final  String KEY_DEPRESSION_TYPE = "depressionType";
+
+    public static final String KEY_DOC_ID = "doctorid";
+    public static final String KEY_PATIENT_ID = "patientid";
+
+    public static final String KEY_BOOKED_DATE = "bookeddate";
+    public static final String KEY_BOOKED_TIME = "bookedtime";
+
+
+
 
 
 }
