@@ -19,6 +19,8 @@ public class Constants {
     public static final String KEY_BOOKED_DATE = "bookeddate";
     public static final String KEY_BOOKED_TIME = "bookedtime";
 
+    public static final String KEY_USER_CATEGORY = "userCategory";
+
 
 
 

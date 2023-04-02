@@ -15,10 +15,12 @@ public class UserModel {
     private String id;
     @SerializedName("depressionType")
     private String depressionType;
+    @SerializedName("userCategory")
+    private String userCategory;
 
-
-
-
+    public String getUserCategory() {
+        return userCategory;
+    }
 
     public String getName() {
         return name;

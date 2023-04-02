@@ -34,8 +34,8 @@ public class Adapter extends RecyclerView.Adapter <Adapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.bookedDate.setText(users.get(position).getBookeddate());
-        holder.bookedTime.setText(users.get(position).getBookedtime());
+        holder.patientId.setText("Patient Name : "+users.get(position).getPatientid());
+        holder.patientResults.setText("EPDS screening : "+users.get(position).getPatienttestresults() + " marks");
     }
 
     @Override
@@ -43,11 +43,11 @@ public class Adapter extends RecyclerView.Adapter <Adapter.MyViewHolder>{
         return users.size();
     }
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView bookedDate,bookedTime;
+        TextView patientResults,patientId;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            bookedDate = itemView.findViewById(R.id.date);
-            bookedTime = itemView.findViewById(R.id.time);
+            patientResults = itemView.findViewById(R.id.testResults);
+            patientId = itemView.findViewById(R.id.patientId);
         }
     }
 }

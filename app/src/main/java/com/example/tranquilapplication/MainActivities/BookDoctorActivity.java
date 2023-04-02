@@ -90,8 +90,8 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
         //Getting Loged-in user using shared preferences
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        String name = sharedPreferences.getString(KEY_NAME, null);
-        String Userrid = sharedPreferences.getString(KEY_ID, null);
+     //   String name = sharedPreferences.getString(KEY_NAME, null);
+        String Userrid = sharedPreferences.getString(KEY_NAME, null);
         UseridHidden.setText(Userrid);
 
 

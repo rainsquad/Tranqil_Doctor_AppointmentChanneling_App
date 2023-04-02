@@ -3,8 +3,6 @@ package com.example.tranquilapplication.MainActivities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,7 +45,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                         return;
 
                     case  R.id.notification:
-                        Intent b = new Intent(DoctorDetailsActivity.this, NotificationActivity.class);
+                        Intent b = new Intent(DoctorDetailsActivity.this, DoctorDailyScheduleActivity.class);
                         startActivity(b);
                         return;
 

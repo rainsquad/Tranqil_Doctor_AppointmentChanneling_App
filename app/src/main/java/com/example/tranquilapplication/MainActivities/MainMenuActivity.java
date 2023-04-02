@@ -1,6 +1,5 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.Services.Constants.KEY_BOOKED_DATE;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
@@ -95,7 +94,7 @@ public class MainMenuActivity extends AppCompatActivity {
                         return;
 
                     case  R.id.notification:
-                        Intent b = new Intent(MainMenuActivity.this, NotificationActivity.class);
+                        Intent b = new Intent(MainMenuActivity.this, DoctorDailyScheduleActivity.class);
                         startActivity(b);
                         return;
 

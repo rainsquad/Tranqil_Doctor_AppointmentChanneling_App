@@ -13,24 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TranquilApplication"
         tools:targetApi="31">
-        <activity
-            android:name=".TestRecycle"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivities.BookDoctorActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivities.MainMenuActivity"
+            />
         <activity
             android:name=".MainActivities.DoctorDetailsActivity"
             android:exported="false"
             android:parentActivityName=".MainActivities.MainMenuActivity" />
         <activity
-            android:name=".MainActivities.NotificationActivity"
+            android:name=".MainActivities.DoctorDailyScheduleActivity"
             android:exported="false"
             android:parentActivityName=".MainActivities.MainMenuActivity" />
         <activity
             android:name=".MainActivities.ScreenTestResutsActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivities.MainMenuActivity" />
+            android:parentActivityName=".MainActivities.MainMenuActivity"
+             />
         <activity
             android:name=".MainActivities.ScreenTestIntroActivity"
             android:exported="false"
@@ -38,22 +39,27 @@
         <activity
             android:name=".MainActivities.ScreenTestStartActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivities.MainMenuActivity" />
+           />
         <activity
             android:name=".MainActivities.QuestionnaireActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivities.ScreenTestStartActivity" />
+            android:parentActivityName=".MainActivities.MainMenuActivity"
+           />
         <activity
             android:name=".MainActivities.LoginActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivities.MainActivity" />
+            android:parentActivityName=".MainActivities.MainActivity"
+         />
         <activity
             android:name=".MainActivities.RegisterActivity"
             android:exported="false"
             android:parentActivityName=".MainActivities.MainActivity" />
         <activity
             android:name=".MainActivities.MainMenuActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivities.MainActivity"
+
+            />
         <activity
             android:name=".MainActivities.SetupProfileActivity"
             android:exported="false"
