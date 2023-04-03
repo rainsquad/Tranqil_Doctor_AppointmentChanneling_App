@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,16 +19,19 @@ import android.widget.TextView;
 
 import com.example.tranquilapplication.R;
 
+import java.net.URI;
+
 public class ScreenTestResutsActivity extends AppCompatActivity {
 
     TextView txtView, txtNextStep, txtResultsSuggest;
 
     Button btnNextStep;
 
-    LinearLayout popupbg;
+    LinearLayout popupbg,button;
 
     Dialog mDialog;
     RelativeLayout layout;
+
 
 
     @Override
@@ -37,10 +41,11 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
         txtView = findViewById(R.id.txtScore);
         txtNextStep = findViewById(R.id.txtNextStep);
         btnNextStep = findViewById(R.id.btnNextStep);
-
         btnNextStep.setVisibility(View.INVISIBLE);
         mDialog = new Dialog(this);
         layout = findViewById(R.id.testpopup);
+        button = findViewById(R.id.button);
+
 
 
         //Get the score value from previous activity

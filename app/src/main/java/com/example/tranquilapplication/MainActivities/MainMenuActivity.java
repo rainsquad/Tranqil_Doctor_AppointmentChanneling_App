@@ -105,7 +105,7 @@ public class MainMenuActivity extends AppCompatActivity {
         MidWives.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreatepopUpwindow();
+                CreatepopUpwindowMidWives();
             }
         });
         clickForum.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +145,55 @@ public class MainMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 PremiumPaymentPopupWindow();
+                popupWindow.dismiss();
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+            }
+        });
+        // and if you want to close popup when touch Screen
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+    }
+
+    private void CreatepopUpwindowMidWives() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.premium_feature_popup, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            }
+        });
+
+        TextView  Gotit;
+        ImageView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.Gotit);
+        iconclose = popUpView.findViewById(R.id.iconclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PremiumPaymentPopupWindowMidwives();
                 popupWindow.dismiss();
 
             }
@@ -207,6 +256,46 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
+    private void PremiumPaymentPopupWindowMidwives() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.premium_feature_paymentgate_popup, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+
+            }
+        });
+
+        TextView  Gotit;
+        ImageView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.Gotit);
+        iconclose = popUpView.findViewById(R.id.iconClosepayementGate);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PremiumPaymentCardDetailsMidwives();popupWindow.dismiss();
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+            }
+        });
+    }
 
     //Premium payment enter card details popup
 
@@ -250,7 +339,46 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
+    private void PremiumPaymentCardDetailsMidwives() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.premium_payment_details_enter_popup, null);
 
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            }
+        });
+
+        TextView  Gotit;
+        ImageView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.Gotit);
+        iconclose = popUpView.findViewById(R.id.iconclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PremiumPaymentDoneMidwives();
+                popupWindow.dismiss();
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+            }
+        });
+    }
     private void PremiumPaymentDone() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
@@ -291,6 +419,47 @@ public class MainMenuActivity extends AppCompatActivity {
         });
     }
 
+    private void PremiumPaymentDoneMidwives() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            }
+        });
+
+        TextView  Gotit;
+        ImageView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.Gotit);
+        iconclose = popUpView.findViewById(R.id.iconclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                Intent i = new Intent(MainMenuActivity.this,MidvivesLocationMapActivity.class);
+                startActivity(i);
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+            }
+        });
+    }
 
 
     }
