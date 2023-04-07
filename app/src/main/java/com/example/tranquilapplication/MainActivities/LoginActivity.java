@@ -127,9 +127,10 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString(Constants.KEY_DEPRESSION_TYPE, responseBody.getUserDetailObject().getUserDetails().get(0).getDepressionType() );
                         editor.putString(Constants.KEY_EMAIL, responseBody.getUserDetailObject().getUserDetails().get(0).getEmail());
                         editor.putString(Constants.KEY_USER_CATEGORY, responseBody.getUserDetailObject().getUserDetails().get(0).getUserCategory());
+                        editor.putString(Constants.KEY_PROFILE_PIC, responseBody.getUserDetailObject().getUserDetails().get(0).getProfilepicture());
 
                         editor.apply();
-                        Toast.makeText(LoginActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                         if (responseBody.getUserDetailObject().getUserDetails().get(0).getUserCategory().equals("Doctor")) {
                             startActivity(new Intent(getApplicationContext(), DoctorDailyScheduleActivity.class));

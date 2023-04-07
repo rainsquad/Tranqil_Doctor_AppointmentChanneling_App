@@ -15,11 +15,11 @@
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_button"
+        android:background="@drawable/button_round_back"
         android:padding="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/icon_back" />
 
     <TextView
         android:id="@+id/textView3"
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="270dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/roundbtn"
+        android:background="@drawable/button_round"
         android:backgroundTint="@color/Red"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"

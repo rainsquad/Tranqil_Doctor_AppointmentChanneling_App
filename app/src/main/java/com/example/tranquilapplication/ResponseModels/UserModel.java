@@ -17,6 +17,12 @@ public class UserModel {
     private String depressionType;
     @SerializedName("userCategory")
     private String userCategory;
+    @SerializedName("profilepicture")
+    private String profilepicture;
+
+    public String getProfilepicture() {
+        return profilepicture;
+    }
 
     public String getUserCategory() {
         return userCategory;

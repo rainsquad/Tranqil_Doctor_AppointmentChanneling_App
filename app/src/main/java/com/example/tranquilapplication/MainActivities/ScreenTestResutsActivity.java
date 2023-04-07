@@ -109,6 +109,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
                     startActivity(doc);
 
 
+
                 }
             });
             // and if you want to close popup when touch Screen

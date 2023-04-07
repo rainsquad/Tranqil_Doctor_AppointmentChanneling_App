@@ -1,5 +1,6 @@
 package com.example.tranquilapplication.MainActivities;
 
+import static com.example.tranquilapplication.Services.Constants.KEY_PROFILE_PIC;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
@@ -8,7 +9,10 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -24,11 +28,13 @@ import com.example.tranquilapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.nio.charset.StandardCharsets;
+
 
 public class MainMenuActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     TextView txtLoggedInUser;
-
+    ImageView pro_pic_view;
     CardView therapy;
     private static final String KEY_NAME = "name";
     private static final String KEY_ID = "id";
@@ -52,14 +58,19 @@ public class MainMenuActivity extends AppCompatActivity {
         clickForum = findViewById(R.id.clickForum);
         layout = findViewById(R.id.linearLayout4);
         therapy = findViewById(R.id.therapy);
-
+        pro_pic_view = findViewById(R.id.pro_pic);
 
 
         //Getting Loged-in user using shared preferences
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_NAME, null);
         String id = sharedPreferences.getString(KEY_ID,null);
+        String base64 = sharedPreferences.getString(KEY_PROFILE_PIC,null);
+        byte[] imgdate = Base64.decode(base64,Base64.DEFAULT);
+       // String text = new String(imgdate, StandardCharsets.UTF_8);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(imgdate, 0, imgdate.length);
 
+        pro_pic_view.setImageBitmap(decodedByte);
         txtLoggedInUser.setText(name);
 
         selectEPDS.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +105,13 @@ public class MainMenuActivity extends AppCompatActivity {
                         return;
 
                     case  R.id.notification:
-                        Intent b = new Intent(MainMenuActivity.this, DoctorDailyScheduleActivity.class);
+                        Intent b = new Intent(MainMenuActivity.this, NotificationActivity.class);
                         startActivity(b);
+                        return;
+
+                    case R.id.Menu:
+                        Intent c = new Intent(MainMenuActivity.this, MyAccountActivity.class);
+                        startActivity(c);
                         return;
 
 

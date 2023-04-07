@@ -62,7 +62,6 @@ public class DoctorDailyScheduleActivity extends AppCompatActivity {
 
                 String sd=   String.format("%04d/%02d/%02d", year, month + 1, dayOfMonth);
                 DateselectHidden.setText(sd);
-                Toast.makeText(DoctorDailyScheduleActivity.this, ""+sd, Toast.LENGTH_SHORT).show();
                 fetchUsers("DoctorSchedule","");
             }
         });
@@ -81,7 +80,7 @@ public class DoctorDailyScheduleActivity extends AppCompatActivity {
                 adapter = new Adapter(users, DoctorDailyScheduleActivity.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-                Toast.makeText(DoctorDailyScheduleActivity.this, "asdas" , Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

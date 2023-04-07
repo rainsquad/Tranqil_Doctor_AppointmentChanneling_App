@@ -31,6 +31,7 @@ public class ScreenTestStartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ScreenTestStartActivity.super.onBackPressed();
+                finish();
             }
         });
 

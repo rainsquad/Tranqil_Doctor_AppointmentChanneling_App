@@ -1,18 +1,16 @@
 package com.example.tranquilapplication.MainActivities;
 
 import static com.example.tranquilapplication.Services.Constants.KEY_BOOKED_DATE;
-import static com.example.tranquilapplication.Services.Constants.KEY_BOOKED_TIME;
+import static com.example.tranquilapplication.Services.Constants.KEY_SLOTS_LEFT;
 import static com.example.tranquilapplication.Services.Constants.KEY_DOC_ID;
-import static com.example.tranquilapplication.Services.Constants.KEY_ID;
 import static com.example.tranquilapplication.Services.Constants.KEY_NAME;
 
+import static com.example.tranquilapplication.Services.Constants.KEY_SLOTS_LEFT;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,14 +19,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tranquilapplication.ResponseModels.Users;
-import com.example.tranquilapplication.Services.Adapter;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
 import com.example.tranquilapplication.R;
@@ -41,14 +36,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookDoctorActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView docName, timeSlot, UseridHidden, DateselectHidden, abcdef,  txt1, setDatecheck;
+    TextView docName, timeSlot, UseridHidden, DateselectHidden, abcdef, txt1, setDatecheck;
 
     TextInputEditText testDate, testMarks;
     SharedPreferences sharedPreferences;
@@ -83,14 +77,14 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         txt1Hidden = findViewById(R.id.txt1Hidden);
         abcdef = findViewById(R.id.abcdef);
         btnBook = findViewById(R.id.btnBook);
-        setDatecheck = findViewById(R.id.setDatetcheck);
+
         calendarView.setMinDate((new Date().getTime()));
         btnBook.setOnClickListener(this);
 
 
         //Getting Loged-in user using shared preferences
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-     //   String name = sharedPreferences.getString(KEY_NAME, null);
+        //   String name = sharedPreferences.getString(KEY_NAME, null);
         String Userrid = sharedPreferences.getString(KEY_NAME, null);
         UseridHidden.setText(Userrid);
 
@@ -101,14 +95,10 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         DateselectHidden.setText(selectedDate);
 
 
-
-
-
         //  OnDateChangeListener();
 
 
         //get doctor name from previous activity
-
         String doc1name = getIntent().getStringExtra("doc1");
         docName.setText(doc1name);
 
@@ -123,8 +113,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         if (bundle != null) {
             imagevalue = bundle.getInt("doc1img");
         }
-        imgdoc1.setImageResource(imagevalue
-        );
+        imgdoc1.setImageResource(imagevalue);
 
 
         doctorcheck();
@@ -145,9 +134,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 //                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 //                String sd = sdf.format(new Date(calendarView.getDate()));
 
-             String sd=   String.format("%04d/%02d/%02d", year, month + 1, dayOfMonth);
+                String sd = String.format("%04d/%02d/%02d", year, month + 1, dayOfMonth);
                 DateselectHidden.setText(sd);
-                Toast.makeText(BookDoctorActivity.this, ""+sd, Toast.LENGTH_SHORT).show();
+
                 doctorcheck();
             }
         });
@@ -191,9 +180,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
 
 
-        txt1.setBackground(ContextCompat.getDrawable(this, R.drawable.time_select_round_button));
+        txt1.setBackground(ContextCompat.getDrawable(this, R.drawable.background_time_select_round_button));
 
-        btnBook.setBackground(ContextCompat.getDrawable(this, R.drawable.time_select_round_button));
+        btnBook.setBackground(ContextCompat.getDrawable(this, R.drawable.background_time_select_round_button));
 
         //Validating answer selection ( User should select an answer before pressing submit button, and also user should answer all 10 questions)
 
@@ -227,7 +216,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         } else {
             selectedAnswer = clickedButton.getText().toString();
             // clickedButton.setBackgroundColor(Color.MAGENTA);
-            clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.time_select_round_button_grey));
+            clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.background_time_select_round_button_grey));
 
         }
     }
@@ -242,7 +231,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
             Toast.makeText(this, "Enter your test results ", Toast.LENGTH_SHORT).show();
 
-        } else if ( score > 30) {
+        } else if (score > 30) {
             Toast.makeText(this, "Your test marks should be between 10-30", Toast.LENGTH_SHORT).show();
         } else if (score < 10) {
             Toast.makeText(this, "Your test marks should be between 10-30", Toast.LENGTH_SHORT).show();
@@ -253,9 +242,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
             params.put("doctorid", docName.getText().toString());
             params.put("patientid", UseridHidden.getText().toString());
             params.put("bookeddate", DateselectHidden.getText().toString());
-            params.put("bookedtime", timeSlot.getText().toString());
+            params.put("slotsleft", timeSlot.getText().toString());
             params.put("patienttestresults", testMarks.getText().toString());
-            Toast.makeText(this, "okay", Toast.LENGTH_SHORT).show();
+
             doctorschedule(params);
         }
     }
@@ -278,7 +267,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                 if (responseBody != null) {
                     if (responseBody.getSuccess().equals("1")) {
                         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCE_NAME, MODE_PRIVATE);
-                        Intent i = new Intent(BookDoctorActivity.this,DoctorDetailsActivity.class);
+                        Intent i = new Intent(BookDoctorActivity.this, AppointmentConfirmedActivity.class);
                         startActivity(i);
                         finish();
                     } else {
@@ -320,7 +309,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                         editor.putString(KEY_DOC_ID, responseBody.getDocDetailObject().getDocDetails().get(0).getDoctorid());
                         editor.putString(Constants.KEY_PATIENT_ID, responseBody.getDocDetailObject().getDocDetails().get(0).getPatientid());
                         editor.putString(KEY_BOOKED_DATE, responseBody.getDocDetailObject().getDocDetails().get(0).getBookeddate());
-                        editor.putString(KEY_BOOKED_TIME, responseBody.getDocDetailObject().getDocDetails().get(0).getBookedtime());
+                        editor.putString(KEY_SLOTS_LEFT, responseBody.getDocDetailObject().getDocDetails().get(0).getSlotsleft());
 
 
                         editor.apply();
@@ -350,7 +339,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_DOC_ID, null);
         String date = sharedPreferences.getString(KEY_BOOKED_DATE, null);
-        String time = sharedPreferences.getString(KEY_BOOKED_TIME, null);
+        String time = sharedPreferences.getString(KEY_SLOTS_LEFT, null);
 
 
         txt1.setText(time);

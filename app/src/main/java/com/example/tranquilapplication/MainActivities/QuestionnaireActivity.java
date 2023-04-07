@@ -102,10 +102,10 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
 
-        ansA.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
-        ansB.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
-        ansC.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
-        ansD.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtn));
+        ansA.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
+        ansB.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
+        ansC.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
+        ansD.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
 
      //Validating answer selection ( User should select an answer before pressing submit button, and also user should answer all 10 questions)
 
@@ -137,7 +137,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
             //choices button clicked
             selectedAnswer = clickedButton.getText().toString();
             // clickedButton.setBackgroundColor(Color.MAGENTA);
-            clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.roundbtngrey));
+            clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round_grey));
 
         }
 

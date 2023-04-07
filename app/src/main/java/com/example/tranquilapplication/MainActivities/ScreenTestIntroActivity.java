@@ -30,6 +30,7 @@ public class ScreenTestIntroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent2 = new Intent(ScreenTestIntroActivity.this,QuestionnaireActivity.class);
                 startActivity(intent2);
+
             }
         });
 
@@ -37,6 +38,7 @@ public class ScreenTestIntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ScreenTestIntroActivity.super.onBackPressed();
+                finish();
             }
         });
 

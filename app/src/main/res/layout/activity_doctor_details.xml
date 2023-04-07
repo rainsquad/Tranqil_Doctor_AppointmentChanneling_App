@@ -80,7 +80,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickID1"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="left"
@@ -88,6 +88,8 @@
                             android:padding="20dp">
 
                             <LinearLayout
+
+                                android:id="@+id/clickID1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -95,7 +97,7 @@
                                     android:layout_width="49dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor1" />
+                                    android:src="@drawable/icon_doctor1" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -144,7 +146,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -161,11 +163,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -177,7 +180,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -207,7 +210,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickId2"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left"
@@ -215,6 +218,7 @@
                             android:padding="20dp">
 
                             <LinearLayout
+                                android:id="@+id/clickId2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -222,7 +226,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor2" />
+                                    android:src="@drawable/icon_doctor2" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -271,7 +275,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -288,11 +292,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -304,7 +309,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -334,7 +339,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickId3"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="left"
@@ -342,6 +347,7 @@
                             android:padding="20dp">
 
                             <LinearLayout
+                                android:id="@+id/clickId3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -349,7 +355,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor3" />
+                                    android:src="@drawable/icon_doctor3" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -398,7 +404,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -415,11 +421,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -431,7 +438,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -461,7 +468,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickId1"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="left"
@@ -469,6 +476,7 @@
                             android:padding="20dp">
 
                             <LinearLayout
+                                android:id="@+id/clickId4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -476,7 +484,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor4" />
+                                    android:src="@drawable/icon_doctor4" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -525,7 +533,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -542,11 +550,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -558,7 +567,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -588,7 +597,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickId5"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="left"
@@ -596,6 +605,7 @@
                             android:padding="20dp">
 
                             <LinearLayout
+                                android:id="@+id/clickId5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -603,7 +613,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor5" />
+                                    android:src="@drawable/icon_doctor5" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -652,7 +662,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -669,11 +679,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -685,7 +696,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -715,7 +726,7 @@
                         >
 
                         <LinearLayout
-                            android:id="@+id/clickId6"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="left"
@@ -723,6 +734,7 @@
                             android:padding="20dp">
 
                             <LinearLayout
+                                android:id="@+id/clickId6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
@@ -730,7 +742,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
 
-                                    android:src="@drawable/doctor6" />
+                                    android:src="@drawable/icon_doctor6" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -779,7 +791,7 @@
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="15dp"
                                     android:layout_marginTop="20dp"
-                                    android:background="@drawable/icons_languages"
+                                    android:background="@drawable/icon_languages"
 
                                     />
 
@@ -796,11 +808,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/book6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:padding="5dp"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
@@ -812,7 +825,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/baseline_videocam_24" />
+                                    android:background="@drawable/icon_videocam" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -859,7 +872,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/transparent_background"
+        android:background="@drawable/background_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

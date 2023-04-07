@@ -14,12 +14,12 @@ import com.example.tranquilapplication.ResponseModels.Users;
 
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter <Adapter.MyViewHolder>{
+public class AdapterNotification extends RecyclerView.Adapter <AdapterNotification.MyViewHolder>{
 
     private List<Users> users;
     private Context context;
 
-    public Adapter(List<Users> users, Context context) {
+    public AdapterNotification(List<Users> users, Context context) {
         this.users = users;
         this.context = context;
     }
@@ -34,8 +34,8 @@ public class Adapter extends RecyclerView.Adapter <Adapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.patientId.setText("Patient Name : "+users.get(position).getPatientid());
-        holder.patientResults.setText("EPDS screening : "+users.get(position).getPatienttestresults() + " marks");
+        holder.bookedDate.setText("Booked Date : "+users.get(position).getBookeddate());
+        holder.DoctorName.setText("Doctor : "+users.get(position).getDoctorid() );
 
 
     }
@@ -45,12 +45,12 @@ public class Adapter extends RecyclerView.Adapter <Adapter.MyViewHolder>{
         return users.size();
     }
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView patientResults,patientId,timeSLot;
+        TextView bookedDate,DoctorName;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            patientResults = itemView.findViewById(R.id.testResults);
-            patientId = itemView.findViewById(R.id.patientId);
-            timeSLot = itemView.findViewById(R.id.timeSlot);
+            bookedDate = itemView.findViewById(R.id.testResults);
+            DoctorName = itemView.findViewById(R.id.patientId);
+
         }
     }
 }

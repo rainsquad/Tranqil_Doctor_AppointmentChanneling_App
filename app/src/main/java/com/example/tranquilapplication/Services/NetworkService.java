@@ -15,11 +15,13 @@ import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface NetworkService {
     @FormUrlEncoded
+
     @POST("register.php")
     Call<RegistrationResponseModel> register(@FieldMap HashMap<String, String> params);
 
@@ -51,6 +53,13 @@ public interface NetworkService {
 
             @Query("key") String key,
              @Query("doctorid") String doctorid
+
+    );
+
+    @GET("FetchNotification.php")
+    Call<List<Users>> getNotification(
+
+            @Query("patientid") String patientid
 
     );
 }

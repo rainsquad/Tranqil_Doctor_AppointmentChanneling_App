@@ -8,6 +8,17 @@ public class Users
     @SerializedName("patienttestresults") private String patienttestresults;
     @SerializedName("patientid") private String patientid;
 
+    @SerializedName("doctorid") private String doctorid;
+    @SerializedName("bookeddate") private String bookeddate;
+
+    public String getBookeddate() {
+        return bookeddate;
+    }
+
+    public String getDoctorid() {
+        return doctorid;
+    }
+
     public String getPatienttestresults() {
         return patienttestresults;
     }

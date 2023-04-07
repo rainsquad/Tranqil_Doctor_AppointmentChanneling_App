@@ -12,10 +12,12 @@ public class DocModel {
     @SerializedName("bookeddate")
     private String bookeddate;
 
-    @SerializedName("bookedtime")
-    private String bookedtime;
+    @SerializedName("slotsleft")
+    private String slotsleft;
 
-
+    public String getSlotsleft() {
+        return slotsleft;
+    }
 
     public String getDoctorid() {
         return doctorid;
@@ -26,9 +28,6 @@ public class DocModel {
 
     public String getBookeddate() {
         return bookeddate;
-    }
-    public String getBookedtime() {
-        return bookedtime;
     }
 
 }

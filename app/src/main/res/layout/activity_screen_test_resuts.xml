@@ -112,7 +112,7 @@
                                 <ImageView
                                     android:layout_width="35dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/iconthinkinface"
+                                    android:background="@drawable/icon_thinkin_face"
                                     android:padding="5dp" />
 
 
@@ -142,7 +142,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:background="@drawable/roundbtn"
+                                android:background="@drawable/button_round"
                                 android:paddingLeft="40dp"
                                 android:paddingRight="40dp"
                                 android:text="CLICK HERE"
@@ -219,7 +219,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -239,7 +239,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -274,7 +274,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -292,7 +292,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -327,7 +327,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -345,7 +345,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -380,7 +380,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -398,7 +398,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -433,7 +433,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -451,7 +451,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -485,7 +485,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -503,7 +503,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -537,7 +537,7 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:background="@drawable/baseline_call_24"
+                                                android:background="@drawable/icon_call"
                                                 android:padding="15dp" />
 
                                             <TextView
@@ -555,7 +555,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
                                             android:layout_marginStart="30dp"
-                                            android:background="@drawable/roundbtngrey"
+                                            android:background="@drawable/button_round_grey"
                                             android:gravity="center"
                                             android:paddingLeft="15dp"
                                             android:paddingRight="15dp"
@@ -584,7 +584,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/transparent_background"
+        android:background="@drawable/background_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/premium_feauture_popupbg"
+        android:background="@drawable/popup_bg_premium_feauture"
         android:elevation="20dp"
         android:orientation="vertical"
         android:padding="10dp">
@@ -95,7 +95,7 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="center"
             android:layout_marginTop="35dp"
-            android:background="@drawable/time_select_round_button"
+            android:background="@drawable/background_time_select_round_button"
             android:paddingLeft="25dp"
             android:paddingTop="5dp"
             android:paddingRight="25dp"
