@@ -12,11 +12,18 @@ public class DocModel {
     @SerializedName("bookeddate")
     private String bookeddate;
 
-    @SerializedName("slotsleft")
-    private String slotsleft;
+    @SerializedName("slotsleftmorning")
+    private String slotsleftmorning;
+    @SerializedName("slotsleftevening")
+    private String slotsleftevening;
 
-    public String getSlotsleft() {
-        return slotsleft;
+
+    public String getSlotsleftmorning() {
+        return slotsleftmorning;
+    }
+
+    public String getSlotsleftevening() {
+        return slotsleftevening;
     }
 
     public String getDoctorid() {

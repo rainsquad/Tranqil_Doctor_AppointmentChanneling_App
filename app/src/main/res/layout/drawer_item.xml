@@ -19,18 +19,18 @@
       android:layout_height="wrap_content"
       android:orientation="vertical"
       android:padding="10dp"
-      android:background="#ff679d"
+
 >
     <TextView
         android:id="@+id/testResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:text="Results"
         android:padding="10dp"
-        android:background="@drawable/button_round_white"
+
         android:textColor="@color/black"
-        android:gravity="center"
+        android:gravity="left"
         android:textSize="13sp"/>
 
     <TextView
@@ -38,21 +38,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-       android:gravity="center"
+       android:gravity="left"
         android:layout_marginTop="2dp"
-        android:background="@drawable/button_round_lite_pink"
+
         android:textColor="@color/black"
         android:padding="10dp"
         android:textSize="12sp"
         android:text="Email" />
+    <TextView
+        android:id="@+id/indexhide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time SLot"
+        android:gravity="left"
+        android:padding="10dp"
+        android:textSize="12sp"
+        />
   </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
 
     <View
         android:background="#bfbfbf"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+
+        />
 
 
 

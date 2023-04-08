@@ -10,6 +10,11 @@ public class Users
 
     @SerializedName("doctorid") private String doctorid;
     @SerializedName("bookeddate") private String bookeddate;
+    @SerializedName("timeslotassigned") private String timeslotassigned;
+
+    public String getTimeslotassigned() {
+        return timeslotassigned;
+    }
 
     public String getBookeddate() {
         return bookeddate;

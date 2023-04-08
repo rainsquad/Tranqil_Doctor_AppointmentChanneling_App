@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         inputEmail = findViewById(R.id.txtloginEmail);
         inputEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -91,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
 
 
     }

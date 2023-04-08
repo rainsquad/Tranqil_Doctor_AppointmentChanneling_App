@@ -51,7 +51,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         txtLoggedInUser = findViewById(R.id.Loggedinuser);
         selectEPDS = findViewById(R.id.clickEPDS);
-        selectMidvives = findViewById(R.id.ClickMidwives);
+
         selectDoctors = findViewById(R.id.ClickDoctors);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         MidWives = findViewById(R.id.ClickMidwives);
@@ -98,8 +98,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.home:
-
-
                         Intent a = new Intent(MainMenuActivity.this,MainMenuActivity.class);
                         startActivity(a);
                         return;

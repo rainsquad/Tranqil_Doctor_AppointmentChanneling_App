@@ -27,5 +27,10 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         },2000);
+
+        //if Logout button clicked My account activity will parse the Intent to this
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
     }
 }

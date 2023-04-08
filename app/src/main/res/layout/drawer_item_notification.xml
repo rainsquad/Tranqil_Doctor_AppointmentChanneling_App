@@ -8,6 +8,7 @@
 
 
 <androidx.cardview.widget.CardView
+    android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
@@ -18,45 +19,33 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:padding="10dp"
-      android:background="@color/Red"
->
+      android:padding="10dp" >
+<!--      android:background="@color/Red"-->
+
     <TextView
         android:id="@+id/testResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:text="Results"
         android:padding="10dp"
         android:background="@drawable/button_round_white"
         android:textColor="@color/black"
-        android:gravity="center"
+        android:gravity="left"
         android:textSize="13sp"/>
 
     <TextView
-        android:id="@+id/patientId"
+        android:id="@+id/doctorId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-       android:gravity="center"
+       android:gravity="left"
         android:layout_marginTop="2dp"
-        android:background="@drawable/button_round_lite_pink"
+
         android:textColor="@color/black"
         android:padding="10dp"
         android:textSize="12sp"
         android:text="Email" />
-      <TextView
-          android:id="@+id/timeSlot"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:gravity="center"
-          android:layout_marginTop="2dp"
-          android:background="@drawable/button_round_lite_pink"
-          android:textColor="@color/black"
-          android:padding="10dp"
-          android:textSize="12sp"
-          android:text="Email" />
 
 
   </LinearLayout>

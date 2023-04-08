@@ -26,7 +26,7 @@ public class AdapterNotification extends RecyclerView.Adapter <AdapterNotificati
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_item_notification, parent, false);
         return new MyViewHolder(view);
 
 
@@ -49,7 +49,7 @@ public class AdapterNotification extends RecyclerView.Adapter <AdapterNotificati
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             bookedDate = itemView.findViewById(R.id.testResults);
-            DoctorName = itemView.findViewById(R.id.patientId);
+            DoctorName = itemView.findViewById(R.id.doctorId);
 
         }
     }

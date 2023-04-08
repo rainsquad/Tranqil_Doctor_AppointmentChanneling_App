@@ -21,6 +21,7 @@ import com.example.tranquilapplication.Services.Adapter;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
 
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -77,7 +78,7 @@ public class DoctorDailyScheduleActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
                 users = response.body();
-                adapter = new Adapter(users, DoctorDailyScheduleActivity.this);
+                adapter = new Adapter(users, DoctorDailyScheduleActivity.this );
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 

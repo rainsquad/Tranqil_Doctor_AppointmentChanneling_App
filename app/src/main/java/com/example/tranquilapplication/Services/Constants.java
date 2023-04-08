@@ -17,7 +17,8 @@ public class Constants {
     public static final String KEY_PATIENT_ID = "patientid";
 
     public static final String KEY_BOOKED_DATE = "bookeddate";
-    public static final String KEY_SLOTS_LEFT = "slotsleft";
+    public static final String KEY_SLOTS_LEFT_MORNING = "slotsleftmorning";
+    public static final String KEY_SLOTS_LEFT_EVE = "slotsleftevening";
 
     public static final String KEY_USER_CATEGORY = "userCategory";
 

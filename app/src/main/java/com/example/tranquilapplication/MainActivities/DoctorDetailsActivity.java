@@ -101,7 +101,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentcard1 = new Intent(DoctorDetailsActivity.this, DoctorDetailsExpandActivity.class);
-                intentcard1.putExtra("doc3", "Dr.Shalani Jayawardane");
+                intentcard1.putExtra("doc1", "Dr.Shalani Jayawardane");
                 intentcard1.putExtra("doc1img", R.drawable.icon_doctor3);
                 intentcard1.putExtra("testMarksFinal", score);
                 startActivity(intentcard1);
@@ -178,7 +178,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentcard1 = new Intent(DoctorDetailsActivity.this, BookDoctorActivity.class);
-                intentcard1.putExtra("doc3", "Dr.Shalani Jayawardane");
+                intentcard1.putExtra("doc1", "Dr.Shalani Jayawardane");
                 intentcard1.putExtra("doc1img", R.drawable.icon_doctor3);
                 intentcard1.putExtra("testMarksFinal", score);
                 startActivity(intentcard1);

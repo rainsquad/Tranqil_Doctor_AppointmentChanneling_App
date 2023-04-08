@@ -1,5 +1,6 @@
 package com.example.tranquilapplication.Services;
 
+import com.example.tranquilapplication.ResponseModels.DocModel;
 import com.example.tranquilapplication.ResponseModels.DocResponseModel;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
@@ -62,4 +63,6 @@ public interface NetworkService {
             @Query("patientid") String patientid
 
     );
+
+
 }

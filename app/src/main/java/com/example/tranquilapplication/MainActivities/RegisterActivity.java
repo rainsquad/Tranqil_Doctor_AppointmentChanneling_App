@@ -86,12 +86,12 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister = findViewById(R.id.btnregister);
         txtPatient.setText("Patient");
 
-
+        //Get below details from previous Activity
         Intent intent = getIntent();
         String a = intent.getStringExtra("DepressionType");
         String b = intent.getStringExtra("DeliveryDate");
 
-
+        //When back image button pressed
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-//start activity login after login link clicked
+        //start activity login after login link clicked
         linklogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,10 +139,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(Intent.ACTION_PICK);
+                intent1.setType("image/*");
                 intent1.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 activityResultLauncher.launch(intent1);
+
             }
         });
+
+
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +204,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
 
     private void register(HashMap<String, String> params) {
 
