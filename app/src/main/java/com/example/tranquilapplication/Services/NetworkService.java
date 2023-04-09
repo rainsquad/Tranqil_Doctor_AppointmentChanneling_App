@@ -1,5 +1,6 @@
 package com.example.tranquilapplication.Services;
 
+import com.example.tranquilapplication.ResponseModels.AppointmentResponseModel;
 import com.example.tranquilapplication.ResponseModels.DocModel;
 import com.example.tranquilapplication.ResponseModels.DocResponseModel;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
@@ -48,12 +49,11 @@ public interface NetworkService {
     Call<DocResponseModel> doctorcheck(@Field("doctorid") String doctorid, @Field("bookeddate") String bookeddate);
 
 
-
     @GET("getdoctorscheduledates.php")
     Call<List<Users>> getUsers(
 
             @Query("key") String key,
-             @Query("doctorid") String doctorid
+            @Query("doctorid") String doctorid
 
     );
 
@@ -63,6 +63,27 @@ public interface NetworkService {
             @Query("patientid") String patientid
 
     );
+
+//    @FormUrlEncoded
+//    @POST("appointmentaccept.php")
+//    Call<AppointmentResponseModel> doctorappointmentaccept(@FieldMap HashMap<String, String> params);
+
+
+    @FormUrlEncoded
+    @POST("appointmentaccept.php")
+    Call<AppointmentResponseModel> doctorappointmentaccept(
+            @Field("key") String key,
+            @Field("id") int id,
+            @Field("doctorapprovalstatus") String appAccept,
+              @Field("timeslotassigned") String timeslot);
+
+    @FormUrlEncoded
+    @POST("appointmentaccept.php")
+    Call<AppointmentResponseModel> doctorappointmentdeclined(
+            @Field("key") String key,
+            @Field("id") int id,
+            @Field("doctorapprovalstatus") String appAccept);
+
 
 
 }

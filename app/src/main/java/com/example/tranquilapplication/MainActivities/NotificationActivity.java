@@ -53,7 +53,7 @@ public class NotificationActivity extends AppCompatActivity {
         String patientid = sharedPreferences.getString(KEY_NAME,null);
         apiInterface = NetworkClient.getClient().create(NetworkService.class);
 
-        Call<List<Users>> call = apiInterface.getNotification(patientid);
+        Call<List<Users>> call = apiInterface.getNotification(patientid); 
         call.enqueue(new Callback<List<Users>>() {
             @Override
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {

@@ -44,7 +44,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookDoctorActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView docName, timeSlot1, timeSlot2, UseridHidden, DateselectHidden, abcdef, txt1, txt2, setDatecheck, PrefTimeSLotHidden ;
+    TextView docName, timeSlot1, timeSlot2, UseridHidden, DateselectHidden, abcdef, txt1, txt2, setDatecheck, PrefTimeSLotHidden,statusHidden ;
 
     TextInputEditText testDate, testMarks;
     SharedPreferences sharedPreferences;
@@ -75,6 +75,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         testMarks = findViewById(R.id.testMarks);
         calendarView = findViewById(R.id.calenderView);
         DateselectHidden = findViewById(R.id.DateselectHidden);
+        statusHidden = findViewById(R.id.statusHidden);
         txt2 = findViewById(R.id.txt2);
         txt1 = findViewById(R.id.txt1);
         txt1Hidden = findViewById(R.id.txt1Hidden);
@@ -275,6 +276,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
     public void checktestMrks() {
         String tMarks = testMarks.getText().toString();
         score = Integer.parseInt(tMarks);
+      statusHidden.setText("Pending");
 
 
         if (testMarks.getText().toString().equals("0")) {
@@ -309,6 +311,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         params.put("timeslotrequested", PrefTimeSLotHidden.getText().toString());
         params.put("slotsleftmorning", timeSlot1.getText().toString());
         params.put("slotsleftevening", timeSlot2.getText().toString());
+        params.put("doctorapprovalstatus",statusHidden.getText().toString());
 
         doctorschedule(params);
 
