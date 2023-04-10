@@ -84,7 +84,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                acceptHidden.setText("Accepted");
+                acceptHidden.setText("ACCEPTED");
 
                 acceptAppoint("update",id);
 
@@ -93,7 +93,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
         decline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                acceptHidden.setText("Declined");
+                acceptHidden.setText("DECLINED");
                 updateData("update",id);
 
             }

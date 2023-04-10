@@ -5,17 +5,11 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -23,20 +17,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
-import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.PoolingByteArrayOutputStream;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
 import com.example.tranquilapplication.Services.NetworkClient;
@@ -44,9 +30,10 @@ import com.example.tranquilapplication.Services.NetworkService;
 import com.example.tranquilapplication.databinding.ActivityMainBinding;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,8 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
     TextView linklogin, abcd;
     ImageView imgBack, upload_image;
     protected TextView txtPatient;
+    private Bitmap bitmap;
 
-    Bitmap bitmap;
+
 
     ActivityMainBinding binding;
     String path;
@@ -138,10 +126,13 @@ public class RegisterActivity extends AppCompatActivity {
         upload_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(Intent.ACTION_PICK);
-                intent1.setType("image/*");
-                intent1.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                activityResultLauncher.launch(intent1);
+                chooseFile();
+
+
+//                Intent intent1 = new Intent(Intent.ACTION_PICK);
+//                intent1.setType("image/*");
+//                intent1.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                activityResultLauncher.launch(intent1);
 
             }
         });
@@ -171,30 +162,24 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Enter family/home mobile", Toast.LENGTH_SHORT).show();
                 } else if (!inputPassword.getText().toString().equals(txtPwdtwo.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(inputPassword.getText().toString().length()<8 &&!isValidPassword(inputPassword.getText().toString())){
+                    Toast.makeText(RegisterActivity.this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character", Toast.LENGTH_SHORT).show();
+                }
 
-                    ByteArrayOutputStream byteArrayOutputStream;
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                    byte[] image = byteArrayOutputStream.toByteArray();
-                     String base64Image = Base64.encodeToString(image,0);
+                 else {
 
+                    String picture = null;
+                    if (bitmap == null) {
+                        picture = "";
+                    } else {
+                        picture = getStringImage(bitmap);
 
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("name", inputName.getText().toString());
-                    params.put("lastname", txtLastName.getText().toString());
-                    params.put("email", inputemail.getText().toString());
-                    params.put("password", inputPassword.getText().toString());
-                    params.put("passwordtwo", txtPwdtwo.getText().toString());
-                    params.put("mobile", inputMobile.getText().toString());
-                    params.put("familymobile", inputfamilynumber.getText().toString());
-                    params.put("userCategory", txtPatient.getText().toString());
-                    params.put("depressionType", a);
-                    params.put("deliverydate", b);
-                    params.put("profilepicture", String.valueOf(base64Image) );
+                    }
+
+                    UpdateDataSet(a,b,picture);
 
 
-                    register(params);
+
                 }
 
 
@@ -205,6 +190,52 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    public void UpdateDataSet(String a, String b, String picture)
+    {
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("name", inputName.getText().toString());
+        params.put("lastname", txtLastName.getText().toString());
+        params.put("email", inputemail.getText().toString());
+        params.put("password", inputPassword.getText().toString());
+        params.put("passwordtwo", txtPwdtwo.getText().toString());
+        params.put("mobile", inputMobile.getText().toString());
+        params.put("familymobile", inputfamilynumber.getText().toString());
+        params.put("userCategory", txtPatient.getText().toString());
+        params.put("depressionType", a);
+        params.put("deliverydate", b);
+        params.put("profilepicture", picture);
+
+        register(params);
+    }
+
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+    }
+    public String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
+    }
 
     private void register(HashMap<String, String> params) {
 

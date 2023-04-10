@@ -35,8 +35,10 @@ public class AdapterNotification extends RecyclerView.Adapter <AdapterNotificati
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.bookedDate.setText("Booked Date : "+users.get(position).getBookeddate());
-        holder.DoctorName.setText("Doctor : "+users.get(position).getDoctorid() );
+        holder.bookedDate.setText("BOOKED DATE : "+users.get(position).getBookeddate());
+        holder.DoctorName.setText("CONSULTANT : "+users.get(position).getDoctorid() );
+        holder.status.setText("APPOINTMENT STATUS : " + users.get(position).getDoctorapprovalstatus());
+
 
 
     }
@@ -46,11 +48,13 @@ public class AdapterNotification extends RecyclerView.Adapter <AdapterNotificati
         return users.size();
     }
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView bookedDate,DoctorName;
+        TextView bookedDate,DoctorName,status,date;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            bookedDate = itemView.findViewById(R.id.testResults);
+            bookedDate = itemView.findViewById(R.id.date);
             DoctorName = itemView.findViewById(R.id.doctorId);
+            status = itemView.findViewById(R.id.status);
+
 
         }
     }

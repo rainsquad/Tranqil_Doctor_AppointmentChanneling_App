@@ -48,30 +48,30 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String timeslot;
-        holder.patientId.setText("Patient Name : " + users.get(position).getPatientid());
-        holder.patientResults.setText("EPDS screening result : " + users.get(position).getPatienttestresults());
+        holder.patientId.setText("PATIENT NAME : " + users.get(position).getPatientid());
+        holder.patientResults.setText("EPDS SCORE : " + users.get(position).getPatienttestresults());
         holder.appointmentId.setText(String.valueOf(users.get(position).getId()));
-        holder.status.setText("Status : "+users.get(position).getDoctorapprovalstatus());
+        holder.status.setText("APPOINTMENT STATUS : "+users.get(position).getDoctorapprovalstatus());
 
 
         if (position == 0) {
-            holder.indexhide.setText("Time slot : 9.00 am - 10.00 am");
-            timeslot = "Time slot : 9.00 am - 10.00 am";
+            holder.indexhide.setText("TIME SLOT : 9.00 am - 10.00 am");
+            timeslot = "TIME SLOT : 9.00 am - 10.00 am";
         } else if (position == 1) {
-            holder.indexhide.setText("Time slot : 10.00 am - 11.00 am");
-            timeslot = "Time slot : 9.00 am - 10.00 am";
+            holder.indexhide.setText("TIME SLOT : 10.00 am - 11.00 am");
+            timeslot = "TIME SLOT : 9.00 am - 10.00 am";
         } else if (position == 2) {
-            holder.indexhide.setText("Time slot : 11.00 am - 12.00 pm");
-            timeslot = "Time slot : 11.00 am - 12.00 pm";
+            holder.indexhide.setText("TIME SLOT : 11.00 am - 12.00 pm");
+            timeslot = "TIME SLOT : 11.00 am - 12.00 pm";
         } else if (position == 3) {
-            holder.indexhide.setText("Time slot : 2.00 pm - 3.00 pm");
-            timeslot = "Time slot : 2.00 pm - 3.00 pm";
+            holder.indexhide.setText("TIME SLOT : 2.00 pm - 3.00 pm");
+            timeslot = "TIME SLOT : 2.00 pm - 3.00 pm";
         } else if (position == 4) {
-            holder.indexhide.setText("Time slot : 3.00 pm - 4.00 pm");
-            timeslot = "Time slot : 3.00 pm - 4.00 pm";
+            holder.indexhide.setText("TIME SLOT : 3.00 pm - 4.00 pm");
+            timeslot = "TIME SLOT : 3.00 pm - 4.00 pm";
         } else {
-            holder.indexhide.setText("Time slot : 4.00 pm - 5.00 pm");
-            timeslot = "Time slot : 4.00 pm - 5.00 pm";
+            holder.indexhide.setText("TIME SLOT : 4.00 pm - 5.00 pm");
+            timeslot = "TIME SLOT : 4.00 pm - 5.00 pm";
         }
 
 

@@ -276,7 +276,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
     public void checktestMrks() {
         String tMarks = testMarks.getText().toString();
         score = Integer.parseInt(tMarks);
-      statusHidden.setText("Pending");
+      statusHidden.setText("PENDING");
 
 
         if (testMarks.getText().toString().equals("0")) {
