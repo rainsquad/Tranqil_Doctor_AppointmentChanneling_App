@@ -1,7 +1,6 @@
 package com.example.tranquilapplication.Services;
 
 import com.example.tranquilapplication.ResponseModels.AppointmentResponseModel;
-import com.example.tranquilapplication.ResponseModels.DocModel;
 import com.example.tranquilapplication.ResponseModels.DocResponseModel;
 import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
@@ -17,7 +16,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 

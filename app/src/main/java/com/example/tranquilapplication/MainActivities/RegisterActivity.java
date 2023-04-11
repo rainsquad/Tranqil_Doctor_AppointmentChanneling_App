@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -27,7 +26,6 @@ import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
-import com.example.tranquilapplication.databinding.ActivityMainBinding;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -42,6 +40,7 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
     EditText inputName, inputPassword, inputemail, inputMobile, inputfamilynumber, txtLastName, txtPwdtwo;
     Button buttonRegister;
     TextView linklogin, abcd;
@@ -50,14 +49,15 @@ public class RegisterActivity extends AppCompatActivity {
     private Bitmap bitmap;
 
 
+    private String picture;
+    //private CircleImageView mPicture;
 
-    ActivityMainBinding binding;
-    String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
 
         upload_image = findViewById(R.id.upload_image);
         inputName = findViewById(R.id.txtName);
@@ -73,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
         txtPwdtwo = findViewById(R.id.txtPwdtwo);
         buttonRegister = findViewById(R.id.btnregister);
         txtPatient.setText("Patient");
+        // mPicture = findViewById(R.id.picture);
 
         //Get below details from previous Activity
         Intent intent = getIntent();
@@ -138,8 +139,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-
-
         buttonRegister.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -162,24 +161,17 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Enter family/home mobile", Toast.LENGTH_SHORT).show();
                 } else if (!inputPassword.getText().toString().equals(txtPwdtwo.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else if(inputPassword.getText().toString().length()<8 &&!isValidPassword(inputPassword.getText().toString())){
+                } else if (inputPassword.getText().toString().length() < 8 && !isValidPassword(inputPassword.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character", Toast.LENGTH_SHORT).show();
-                }
-
-                 else {
-
+                } else {
                     String picture = null;
                     if (bitmap == null) {
                         picture = "";
                     } else {
                         picture = getStringImage(bitmap);
-
                     }
-
-                    UpdateDataSet(a,b,picture);
-
-
-
+                    System.out.println(picture);
+                    UpdateDataSet(a, b, picture);
                 }
 
 
@@ -190,8 +182,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    public void UpdateDataSet(String a, String b, String picture)
-    {
+
+    public void UpdateDataSet(String a, String b, String picture) {
 
         HashMap<String, String> params = new HashMap<>();
         params.put("name", inputName.getText().toString());
@@ -216,13 +208,44 @@ public class RegisterActivity extends AppCompatActivity {
         intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
     }
-    public String getStringImage(Bitmap bmp){
+
+    public String getStringImage(Bitmap bmp) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 40, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            try {
+
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+
+                upload_image.setImageBitmap(bitmap);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
+//    public static String getStringImage(Bitmap bmp) {
+//        Bitmap immagex=bmp;
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        immagex.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//        byte[] b = baos.toByteArray();
+//        String imageEncoded = Base64.encodeToString(b,Base64.DEFAULT);
+//
+//        Log.e("LOOK", imageEncoded);
+//        return imageEncoded;
+//    }
 
 
     public static boolean isValidPassword(final String password) {

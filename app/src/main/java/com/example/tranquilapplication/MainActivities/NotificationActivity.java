@@ -1,6 +1,5 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.Services.Constants.KEY_ID;
 import static com.example.tranquilapplication.Services.Constants.KEY_NAME;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Users;
-import com.example.tranquilapplication.Services.Adapter;
 import com.example.tranquilapplication.Services.AdapterNotification;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
@@ -46,6 +44,9 @@ public class NotificationActivity extends AppCompatActivity {
         fetchNotification();
 
     }
+
+
+
 
 
     public void fetchNotification(){

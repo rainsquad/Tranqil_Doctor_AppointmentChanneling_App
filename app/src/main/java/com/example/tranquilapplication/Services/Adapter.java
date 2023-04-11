@@ -2,23 +2,18 @@ package com.example.tranquilapplication.Services;
 
 import android.content.Context;
 import android.content.Intent;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tranquilapplication.MainActivities.DoctorAppointmentManagerActivity;
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Users;
 
-
-import org.json.JSONArray;
 
 import java.util.List;
 

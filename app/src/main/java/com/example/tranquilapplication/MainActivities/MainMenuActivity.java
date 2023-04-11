@@ -3,7 +3,7 @@ package com.example.tranquilapplication.MainActivities;
 import static com.example.tranquilapplication.Services.Constants.KEY_PROFILE_PIC;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -28,8 +28,6 @@ import com.example.tranquilapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import java.nio.charset.StandardCharsets;
-
 
 public class MainMenuActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -41,9 +39,10 @@ public class MainMenuActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-    LinearLayout MidWives,clickForum;
+
+    LinearLayout MidWives, clickForum;
     LinearLayout layout;
-    private LinearLayout selectEPDS,selectMidvives,selectDoctors;
+    private LinearLayout selectEPDS, selectMidvives, selectDoctors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,22 +52,25 @@ public class MainMenuActivity extends AppCompatActivity {
         selectEPDS = findViewById(R.id.clickEPDS);
 
         selectDoctors = findViewById(R.id.ClickDoctors);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
         MidWives = findViewById(R.id.ClickMidwives);
         clickForum = findViewById(R.id.clickForum);
         layout = findViewById(R.id.linearLayout4);
         therapy = findViewById(R.id.therapy);
         pro_pic_view = findViewById(R.id.pro_pic);
 
-
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //Getting Loged-in user using shared preferences
+
+
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_NAME, null);
-        String id = sharedPreferences.getString(KEY_ID,null);
-        String base64 = sharedPreferences.getString(KEY_PROFILE_PIC,null);
-        byte[] imgdate = Base64.decode(base64,Base64.DEFAULT);
-       // String text = new String(imgdate, StandardCharsets.UTF_8);
+        String id = sharedPreferences.getString(KEY_ID, null);
+        String base64 = sharedPreferences.getString(KEY_PROFILE_PIC, null);
+        byte[] imgdate = Base64.decode(base64, Base64.DEFAULT);
+//                 String text = new String(imgdate, StandardCharsets.UTF_8);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(imgdate, 0, imgdate.length);
+
 
         pro_pic_view.setImageBitmap(decodedByte);
         txtLoggedInUser.setText(name);
@@ -94,18 +96,21 @@ public class MainMenuActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+            public void onNavigationItemReselected( MenuItem item) {
+                switch (item.getItemId()) {
                     case R.id.home:
-                        Intent a = new Intent(MainMenuActivity.this,MainMenuActivity.class);
+                        Intent a = new Intent(MainMenuActivity.this, MainMenuActivity.class);
                         startActivity(a);
                         return;
 
-                    case  R.id.notification:
+
+
+
+                    case R.id.notification:
                         Intent b = new Intent(MainMenuActivity.this, NotificationActivity.class);
                         startActivity(b);
                         return;
+
 
                     case R.id.Menu:
                         Intent c = new Intent(MainMenuActivity.this, MyAccountActivity.class);
@@ -148,7 +153,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -197,7 +202,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -229,7 +234,8 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
-//premium payment popup window
+
+    //premium payment popup window
     private void PremiumPaymentPopupWindow() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_paymentgate_popup, null);
@@ -247,7 +253,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -257,7 +263,8 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentCardDetails();popupWindow.dismiss();
+                PremiumPaymentCardDetails();
+                popupWindow.dismiss();
 
             }
         });
@@ -270,6 +277,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
+
     private void PremiumPaymentPopupWindowMidwives() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_paymentgate_popup, null);
@@ -287,7 +295,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -297,7 +305,8 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentCardDetailsMidwives();popupWindow.dismiss();
+                PremiumPaymentCardDetailsMidwives();
+                popupWindow.dismiss();
 
             }
         });
@@ -329,7 +338,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -353,6 +362,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
+
     private void PremiumPaymentCardDetailsMidwives() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_details_enter_popup, null);
@@ -369,7 +379,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -393,6 +403,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
+
     private void PremiumPaymentDone() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
@@ -409,7 +420,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -449,7 +460,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView  Gotit;
+        TextView Gotit;
         ImageView iconclose;
 
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -460,7 +471,7 @@ public class MainMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 popupWindow.dismiss();
-                Intent i = new Intent(MainMenuActivity.this,MidvivesLocationMapActivity.class);
+                Intent i = new Intent(MainMenuActivity.this, MidvivesLocationMapActivity.class);
                 startActivity(i);
 
             }
@@ -476,4 +487,4 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
 
-    }
+}

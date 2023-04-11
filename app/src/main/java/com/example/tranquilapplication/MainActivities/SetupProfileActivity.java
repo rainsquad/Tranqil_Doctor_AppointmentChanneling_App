@@ -35,6 +35,8 @@ public class SetupProfileActivity extends AppCompatActivity {
     private RadioButton radioButton, rbAntepartum, rbPostpartum;
     private RadioGroup radioGroup;
 
+
+
     private TextView txtHidden;
 
     private CalendarView calendarView;
@@ -67,8 +69,21 @@ public class SetupProfileActivity extends AppCompatActivity {
             }
 
         });
-    }
+        rbAntepartum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               calendarView.setVisibility(View.INVISIBLE);
+            }
+        });
+        rbPostpartum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendarView.setVisibility(View.VISIBLE);
+            }
+        });
 
+//
+    }
 
     // Select date from calender View and get it to a string
     private void OnDateChangeListener() {
@@ -121,6 +136,9 @@ public class SetupProfileActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+
+
+
     }
 
     ;
@@ -133,7 +151,10 @@ public class SetupProfileActivity extends AppCompatActivity {
 
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
         btnSubmit = (Button) findViewById(R.id.btnSubmit1);
+
+
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -144,11 +165,30 @@ public class SetupProfileActivity extends AppCompatActivity {
 
                 if (radioGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(SetupProfileActivity.this, "Please Select which phase you are going through!", Toast.LENGTH_SHORT).show();
-                }  else if (txtHidden.getText().toString().equals("")) {
+                }  else if (calendarView.getVisibility()==View.VISIBLE &&  txtHidden.getText().toString().equals("")) {
                     Toast.makeText(SetupProfileActivity.this, "Select Date", Toast.LENGTH_SHORT).show();
 
 
-                } else {
+                } else if(calendarView.getVisibility()==View.INVISIBLE)
+                {
+                    txtHidden.setText("Antepartem Stage");
+                    // get selected radio button from radioGroup
+                    int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                    // find the radiobutton by returned id
+                    radioButton = (RadioButton) findViewById(selectedId);
+
+
+                    Toast.makeText(SetupProfileActivity.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("depressionType", radioButton.getText().toString());
+                    params.put("deliverydate", txtHidden.getText().toString());
+                    profile(params);
+                }
+
+                else {
+
                     // get selected radio button from radioGroup
                     int selectedId = radioGroup.getCheckedRadioButtonId();
 

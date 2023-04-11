@@ -1,11 +1,7 @@
 package com.example.tranquilapplication.MainActivities;
 
-import static com.example.tranquilapplication.Services.Constants.KEY_NAME;
-import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;

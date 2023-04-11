@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/pro_pic"
                     android:layout_width="49dp"
                     android:layout_height="50dp"
                     android:src="@drawable/icon_doctor1" />
