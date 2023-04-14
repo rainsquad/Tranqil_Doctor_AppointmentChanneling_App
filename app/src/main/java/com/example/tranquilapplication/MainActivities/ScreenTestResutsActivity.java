@@ -94,7 +94,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
         View popUpView = inflater.inflate(R.layout.mainpopup, null);
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
         boolean focusable = true;
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {

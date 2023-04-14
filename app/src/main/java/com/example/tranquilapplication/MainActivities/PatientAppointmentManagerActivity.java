@@ -67,9 +67,14 @@ public class PatientAppointmentManagerActivity extends AppCompatActivity {
         ID.setText("APPOINTMENT ID "+String.valueOf(id));
         txtStatus.setText(d);
         callIdDoctor.setText("Doctor");
+        VideoCall.setVisibility(View.VISIBLE);
 
-
-
+        if (txtStatus.getText().toString().equals("APPOINTMENT STATUS : ACCEPTED"))
+        {
+            VideoCall.setVisibility(View.VISIBLE);
+        }else {
+            VideoCall.setVisibility(View.INVISIBLE);
+        }
 
         //Button clicked Activities
         imgBack3.setOnClickListener(new View.OnClickListener() {

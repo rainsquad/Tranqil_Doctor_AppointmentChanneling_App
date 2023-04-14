@@ -14,6 +14,7 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.text.Layout;
 import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -45,8 +46,7 @@ public class HomeFragment extends Fragment {
     BottomNavigationView bottomNavigationView;
 
 
-
-    LinearLayout MidWives, clickForum,layout;
+    LinearLayout MidWives, clickForum, layout;
 
     private LinearLayout selectEPDS, selectMidvives, selectDoctors;
 
@@ -87,11 +87,10 @@ public class HomeFragment extends Fragment {
         });
 
 
-
         MidWives.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-          CreatepopUpwindowMidWives();
+                CreatepopUpwindowMidWives();
             }
         });
         clickForum.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +109,6 @@ public class HomeFragment extends Fragment {
             mButton.setOnClickListener(this); */
 
 
-
         sharedPreferences = this.getActivity().getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_NAME, null);
         String id = sharedPreferences.getString(KEY_ID, null);
@@ -127,22 +125,29 @@ public class HomeFragment extends Fragment {
     }
 
     private void CreatepopUpwindow() {
-      //  LayoutInflater inflater =getActivity (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        //LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_popup, null);
 
+
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
         boolean focusable = true;
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+
+
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
 
             }
         });
+
 
         TextView Gotit;
         ImageView iconclose;
@@ -154,8 +159,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentPopupWindow();
+
                 popupWindow.dismiss();
+                PremiumPaymentPopupWindow();
+
 
             }
         });
@@ -165,30 +172,57 @@ public class HomeFragment extends Fragment {
 
                 popupWindow.dismiss();
 
+
             }
         });
-        // and if you want to close popup when touch Screen
+//         and if you want to close popup when touch Screen
         popUpView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
+
                 popupWindow.dismiss();
                 return true;
+
             }
+
         });
+
+//        popUpView1.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                fadePopup.dismiss();
+//
+//                popupWindow.dismiss();
+//                return true;
+//
+//            }
+//
+//        });
+
+
+
+
     }
 
+
+
+
     private void CreatepopUpwindowMidWives() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_popup, null);
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
         boolean focusable = true;
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
 
             }
         });
@@ -203,8 +237,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentPopupWindowMidwives();
                 popupWindow.dismiss();
+                PremiumPaymentPopupWindowMidwives();
+
 
             }
         });
@@ -220,25 +255,31 @@ public class HomeFragment extends Fragment {
         popUpView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
                 popupWindow.dismiss();
                 return true;
             }
         });
+
     }
 
     //premium payment popup window
     private void PremiumPaymentPopupWindow() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_paymentgate_popup, null);
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
         boolean focusable = true;
+
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
 
 
             }
@@ -254,8 +295,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentCardDetails();
                 popupWindow.dismiss();
+                PremiumPaymentCardDetails();
+
 
             }
         });
@@ -267,25 +309,37 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
     }
 
     private void PremiumPaymentPopupWindowMidwives() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_feature_paymentgate_popup, null);
 
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
         boolean focusable = true;
+
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
 
 
             }
         });
-
         TextView Gotit;
         ImageView iconclose;
 
@@ -296,8 +350,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentCardDetailsMidwives();
                 popupWindow.dismiss();
+                PremiumPaymentCardDetailsMidwives();
+
 
             }
         });
@@ -309,22 +364,36 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
     }
 
     //Premium payment enter card details popup
 
     private void PremiumPaymentCardDetails() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_details_enter_popup, null);
 
+
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
         boolean focusable = true;
+
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
 
             }
         });
@@ -339,8 +408,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentDone();
                 popupWindow.dismiss();
+                PremiumPaymentDone();
+
 
             }
         });
@@ -352,20 +422,34 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
     }
 
     private void PremiumPaymentCardDetailsMidwives() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_details_enter_popup, null);
 
+
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
         boolean focusable = true;
+
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
 
             }
         });
@@ -380,8 +464,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                PremiumPaymentDoneMidwives();
                 popupWindow.dismiss();
+                PremiumPaymentDoneMidwives();
+
 
             }
         });
@@ -393,24 +478,36 @@ public class HomeFragment extends Fragment {
 
             }
         });
-    }
-
-    private void PremiumPaymentDone() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
-
-        int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true;
-        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
-        layout.post(new Runnable() {
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+            public boolean onTouch(View v, MotionEvent event) {
 
+                popupWindow.dismiss();
+                return true;
             }
         });
 
+    }
+
+    private void PremiumPaymentDone() {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
+
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+        boolean focusable = true;
+             PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
         TextView Gotit;
         ImageView iconclose;
         Gotit = popUpView.findViewById(R.id.Gotit);
@@ -434,24 +531,38 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
     }
 
     private void PremiumPaymentDoneMidwives() {
-        LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.premium_payment_approved_popup, null);
 
+
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
-        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
         boolean focusable = true;
+
         PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
         layout.post(new Runnable() {
             @Override
             public void run() {
-                popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
 
             }
         });
-
         TextView Gotit;
         ImageView iconclose;
 
@@ -473,8 +584,18 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 popupWindow.dismiss();
-
             }
         });
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+
     }
+
+//
 }
