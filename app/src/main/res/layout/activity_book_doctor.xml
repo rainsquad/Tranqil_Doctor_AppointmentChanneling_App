@@ -389,6 +389,18 @@
                 android:visibility="visible"
 
                 />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Test score"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:visibility="visible"
+
+                />
 
 
 
@@ -399,7 +411,7 @@
                 android:layout_gravity="center"
                 android:inputType="number"
 
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="40dp"
                 android:hint="ENTER YOUR TEST MARKS"
                 android:text=""

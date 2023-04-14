@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:text="ANSWER THE QUESTIONS BASED ON HOW YOU HAVE FELT OVER THE PAST 7 DAYS(PAST WEEK)"
         android:textAlignment="center"
@@ -37,7 +37,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgBack" />
 
 
     <Button

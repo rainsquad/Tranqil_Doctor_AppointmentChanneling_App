@@ -69,6 +69,7 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:text="@string/Get_Started"
+        android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/lnkLogin"
         app:layout_constraintEnd_toEndOf="parent"

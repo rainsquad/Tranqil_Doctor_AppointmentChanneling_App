@@ -47,7 +47,7 @@ public class ScreenTestStartActivity extends AppCompatActivity {
         btnPreviousResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(ScreenTestStartActivity.this,MainMenuActivity.class);
+                Intent intent1 = new Intent(ScreenTestStartActivity.this,PreviousTestResultsActivity.class);
                 startActivity(intent1);
             }
         });

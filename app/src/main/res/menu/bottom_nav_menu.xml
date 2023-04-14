@@ -12,7 +12,7 @@
     <item
         android:id="@+id/Menu"
         android:icon="@drawable/icon_menu"
-        android:title="MENU"/>
+        android:title="MY ACCOUNT"/>
 
 
 

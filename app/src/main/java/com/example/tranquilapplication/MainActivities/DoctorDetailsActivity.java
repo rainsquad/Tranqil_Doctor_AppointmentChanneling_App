@@ -26,7 +26,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
-        bottomNavigationView =findViewById(R.id.bottomNavigationView);
+
         crd1 = findViewById(R.id.crd1);
         crd2 = findViewById(R.id.crd2);
         crd3= findViewById(R.id.crd3);
@@ -52,25 +52,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         Intent doc = getIntent();
         int score = doc.getIntExtra("testMarks", 0);
 
-        bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
-                    case R.id.home:
-                        Intent a = new Intent(DoctorDetailsActivity.this,MainMenuActivity.class);
-                        startActivity(a);
-                        return;
 
-                    case  R.id.notification:
-                        Intent b = new Intent(DoctorDetailsActivity.this, DoctorDailyScheduleActivity.class);
-                        startActivity(b);
-                        return;
-
-
-                }
-            }
-        });
 
 
         clickID1.setOnClickListener(new View.OnClickListener() {

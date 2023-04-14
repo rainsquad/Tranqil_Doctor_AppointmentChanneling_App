@@ -12,7 +12,12 @@ public class Users
     @SerializedName("bookeddate") private String bookeddate;
     @SerializedName("timeslotassigned") private String timeslotassigned;
     @SerializedName("doctorapprovalstatus") private String doctorapprovalstatus;
+    @SerializedName("timeslotrequested") private String timeslotrequested;
 
+
+    public String getTimeslotrequested() {
+        return timeslotrequested;
+    }
 
     public String getDoctorapprovalstatus() {
         return doctorapprovalstatus;

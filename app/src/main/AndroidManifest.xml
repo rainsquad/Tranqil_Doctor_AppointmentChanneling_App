@@ -18,19 +18,28 @@
         android:theme="@style/Theme.TranquilApplication"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivities.PreviousTestResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.VideoCallActivityDoctor"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.ForumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.PatientVideoCallActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivities.DoctorAppointmentManagerActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivities.MyAccountActivity"
+            android:name=".MainActivities.PatientAppointmentManagerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivities.AppointmentConfirmedActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivities.DoctorDetailsExpandActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivities.NotificationActivity"
             android:exported="false" />
 
         <meta-data

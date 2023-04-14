@@ -2,6 +2,7 @@ package com.example.tranquilapplication.MainActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,9 @@ import com.example.tranquilapplication.ResponseModels.Users;
 import com.example.tranquilapplication.Services.Adapter;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
+import com.zegocloud.uikit.prebuilt.call.config.ZegoNotificationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 
 import java.util.List;
 
@@ -26,7 +31,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DoctorAppointmentManagerActivity extends AppCompatActivity {
-    TextView pName, tMarks, timeSlot, ID, acceptHidden, idHidden;
+    TextView pName, tMarks, timeSlot, ID, acceptHidden, idHidden,txtStatus,CallIdPatient;
+
+//    EditText UserID;
+
+    LinearLayout VideoCall;
     ImageView imgBack3;
 
     private Adapter adapter;
@@ -49,23 +58,40 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
         decline = findViewById(R.id.decline);
         acceptHidden = findViewById(R.id.accepthidden);
         idHidden = findViewById(R.id.idHidden);
-
+        VideoCall = findViewById(R.id.startVC);
+        txtStatus = findViewById(R.id.status);
+        CallIdPatient = findViewById(R.id.callIdPatient);
+      //  UserID = findViewById(R.id.VidCallUserId);
 
         Intent i = getIntent();
         String a = i.getStringExtra("pName");
         String b = i.getStringExtra("tMarks");
         String c = i.getStringExtra("tSlot");
-         int id = i.getIntExtra("AppointmentId",0);
-
+      int id = i.getIntExtra("AppointmentId",0);
+        //String id = i.getStringExtra("AppointmentId");
+        String d = i.getStringExtra("Status");
 
         pName.setText(a);
         tMarks.setText(b);
         timeSlot.setText(c);
-        ID.setText(String.valueOf(id));
-      //  idHidden.setText(String.valueOf(d));
+        ID.setText("APPOINTMENT ID "+String.valueOf(id));
+        txtStatus.setText(d);
+        CallIdPatient.setText("Patient");
 
 
+        if (txtStatus.getText().toString().equals("APPOINTMENT STATUS : ACCEPTED"))
+        {
+         accept.setVisibility(View.INVISIBLE);
+         VideoCall.setVisibility(View.VISIBLE);
+        //    accept.setClickable(false);
+        }else if(txtStatus.getText().toString().equals("APPOINTMENT STATUS : DECLINED"))
+        {
+            decline.setVisibility(View.INVISIBLE);
+            VideoCall.setVisibility(View.INVISIBLE);
+        }
 
+
+        //Button clicked Activities
         imgBack3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +114,28 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
                 acceptHidden.setText("DECLINED");
                 updateData("update",id);
 
+            }
+        });
+        VideoCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+           // String  userID = UserID.getText().toString().trim();
+
+//                //String userID = String.valueOf(id);
+//                String userID = ID.getText().toString();
+            String userName = pName.getText().toString().trim();
+
+                String userID = CallIdPatient.getText().toString().trim();
+            if (userID.isEmpty())
+            {
+                return;
+            }
+
+                startService(userID);
+                Intent intent = new Intent(DoctorAppointmentManagerActivity.this, VideoCallActivityDoctor.class);
+                intent.putExtra("userID",userID);
+                intent.putExtra("UserName",userName );
+                startActivity(intent);
             }
         });
 
@@ -177,7 +225,27 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
             }
         });
     }
+    void startService(String userID)
+    {
+        Application application = getApplication() ; // Android's application context
+        long appID = 705018974;   // yourAppID
+        String appSign ="c83717bc58d5fb0a2207999d980bb831d1f6305e2f6a90e6faf5e1a8b4061821";  // yourAppSign
+       // yourUserID, userID should only contain numbers, English characters, and '_'.
+        String userName =userID;   // yourUserName
 
+        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+        callInvitationConfig.notifyWhenAppRunningInBackgroundOrQuit = true;
+        ZegoNotificationConfig notificationConfig = new ZegoNotificationConfig();
+        notificationConfig.sound = "zego_uikit_sound_call";
+        notificationConfig.channelID = "CallInvitation";
+        notificationConfig.channelName = "CallInvitation";
+        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userID, userName,callInvitationConfig);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        ZegoUIKitPrebuiltCallInvitationService.unInit();
+    }
 }

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,9 @@ import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.Services.Constants;
 import com.example.tranquilapplication.ResponseModels.DocResponseModel;
 import com.google.android.material.textfield.TextInputEditText;
+import com.zegocloud.uikit.prebuilt.call.config.ZegoNotificationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -44,7 +48,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookDoctorActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView docName, timeSlot1, timeSlot2, UseridHidden, DateselectHidden, abcdef, txt1, txt2, setDatecheck, PrefTimeSLotHidden,statusHidden ;
+    TextView docName, timeSlot1, timeSlot2, UseridHidden, DateselectHidden, abcdef, txt1, txt2, setDatecheck, PrefTimeSLotHidden, statusHidden;
 
     TextInputEditText testDate, testMarks;
     SharedPreferences sharedPreferences;
@@ -125,6 +129,15 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         }
         imgdoc1.setImageResource(imagevalue);
 
+        String tMarks = testMarks.getText().toString();
+
+        if (Integer.parseInt(tMarks)!=0)
+        {
+        testMarks.setEnabled(false);
+        }else {
+            testMarks.setEnabled(true);
+        }
+
 
         doctorcheck();
 
@@ -156,37 +169,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-//    //What happens when u select a date from the calender
-//    private void OnDateChangeListener() {
-//
-//        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-//
-//             //   String str_selectedDate = String.format("%02d.%02d.%04d", dayOfMonth, month + 1,year );
-//          //      SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-//             //   String selectedDate = sdf.format(new Date(calendarView.getDate()));
-//             //   DateselectHidden.setText(selectedDate);
-//              //  Toast.makeText(BookDoctorActivity.this, selectedDate, Toast.LENGTH_SHORT).show();
-//
-////                String sdf = String.format("%04d.%02d.%04d",year, month + 1,dayOfMonth);
-////
-////                String selectedDate = sdf.format(String.valueOf(new Date(calendarView.getDate())));
-//
-//
-//
-//
-//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//                String selectedDate = sdf.format(new Date(calendarView.getDate()));
-//                DateselectHidden.setText(selectedDate);
-//
-//                // Note that months are indexed from 0. So, 0 means January, 1 means february, 2 means march etc.
-//
-//
-//                doctorcheck();
-//            }
-//        });
-//    }
+
 
     //Validating time selector
     @Override
@@ -217,54 +200,52 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         if (clickedButton.getId() == R.id.btnBook) {
             testMarks.getText().toString();
 
-        if(PrefTimeSLotHidden.getText().toString().equals("9.00 am - 12.30 am")) {
+            if (PrefTimeSLotHidden.getText().toString().equals("9.00 am - 12.30 am")) {
 
-            if (txt1.getText().toString().equals("3 SLOTS")) {
-                timeSlot1.setText("2 SLOTS");
-          timeSlot2.setText(txt2.getText().toString());
-                checktestMrks();
-            } else if (txt1.getText().toString().equals("2 SLOTS")) {
-                timeSlot1.setText("1 SLOTS");
-                timeSlot2.setText(txt2.getText().toString());
-                checktestMrks();
-            } else if (txt1.getText().toString().equals("1 SLOTS")) {
-                timeSlot1.setText("0 SLOTS");
-                timeSlot2.setText(txt2.getText().toString());
-                checktestMrks();
+                if (txt1.getText().toString().equals("3 SLOTS")) {
+                    timeSlot1.setText("2 SLOTS");
+                    timeSlot2.setText(txt2.getText().toString());
+                    checktestMrks();
+                } else if (txt1.getText().toString().equals("2 SLOTS")) {
+                    timeSlot1.setText("1 SLOTS");
+                    timeSlot2.setText(txt2.getText().toString());
+                    checktestMrks();
+                } else if (txt1.getText().toString().equals("1 SLOTS")) {
+                    timeSlot1.setText("0 SLOTS");
+                    timeSlot2.setText(txt2.getText().toString());
+                    checktestMrks();
+                } else {
+                    Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
+
+                }
+            } else if (PrefTimeSLotHidden.getText().toString().equals("2.00 pm - 5.00pm")) {
+
+
+                if (txt2.getText().toString().equals("3 SLOTS")) {
+                    timeSlot2.setText("2 SLOTS");
+                    timeSlot1.setText(txt1.getText().toString());
+                    checktestMrks();
+                } else if (txt2.getText().toString().equals("2 SLOTS")) {
+                    timeSlot2.setText("1 SLOTS");
+                    timeSlot1.setText(txt1.getText().toString());
+                    checktestMrks();
+                } else if (txt2.getText().toString().equals("1 SLOTS")) {
+                    timeSlot2.setText("0 SLOTS");
+                    timeSlot1.setText(txt1.getText().toString());
+                    checktestMrks();
+                } else {
+                    Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
+
+                }
+            } else {
+                Toast.makeText(this, "Select a time slot", Toast.LENGTH_SHORT).show();
             }
-            else {
-                Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
-
-            }
-        }else if(PrefTimeSLotHidden.getText().toString().equals("2.00 pm - 5.00pm")) {
-
-
-             if (txt2.getText().toString().equals("3 SLOTS")) {
-                timeSlot2.setText("2 SLOTS");
-                 timeSlot1.setText(txt1.getText().toString());
-                checktestMrks();
-            } else if (txt2.getText().toString().equals("2 SLOTS")) {
-                timeSlot2.setText("1 SLOTS");
-                 timeSlot1.setText(txt1.getText().toString());
-                checktestMrks();
-            } else if (txt2.getText().toString().equals("1 SLOTS")) {
-                timeSlot2.setText("0 SLOTS");
-                 timeSlot1.setText(txt1.getText().toString());
-                checktestMrks();
-            }
-             else {
-                Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
-
-            }
-        }else {
-            Toast.makeText(this, "Select a time slot", Toast.LENGTH_SHORT).show();
-        }
 
 
         } else {
             selectedAnswer = clickedButton.getText().toString();
             // clickedButton.setBackgroundColor(Color.MAGENTA);
-           // clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
+            // clickedButton.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
 
 
         }
@@ -280,6 +261,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
 
         if (testMarks.getText().toString().equals("0")) {
+
             Toast.makeText(this, "Enter your test results ", Toast.LENGTH_SHORT).show();
         } else if (testMarks.getText().toString().isEmpty()) {
 
@@ -291,7 +273,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
             Toast.makeText(this, "Your test marks should be between 10-30", Toast.LENGTH_SHORT).show();
         } else if (PrefTimeSLotHidden.getText().toString().equals("")) {
             Toast.makeText(this, "Select a time slot", Toast.LENGTH_SHORT).show();
-            
+
         } else {
             UploadDoctorSchedule();
 
@@ -311,7 +293,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         params.put("timeslotrequested", PrefTimeSLotHidden.getText().toString());
         params.put("slotsleftmorning", timeSlot1.getText().toString());
         params.put("slotsleftevening", timeSlot2.getText().toString());
-        params.put("doctorapprovalstatus",statusHidden.getText().toString());
+        params.put("doctorapprovalstatus", statusHidden.getText().toString());
 
         doctorschedule(params);
 
@@ -413,20 +395,16 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         String slotsmorn = sharedPreferences.getString(KEY_SLOTS_LEFT_MORNING, null);
         String slotseve = sharedPreferences.getString(KEY_SLOTS_LEFT_EVE, null);
 
-            if (String.valueOf(slotsmorn).equals("0 SLOTS"))
-            {
-                ansA.setEnabled(false);
-            }
+        if (String.valueOf(slotsmorn).equals("0 SLOTS")) {
+            ansA.setEnabled(false);
+        } else if (String.valueOf(slotseve).equals("0 SLOTS")) {
+            ansB.setEnabled(false);
+        } else {
 
-           else if (String.valueOf(slotseve).equals("0 SLOTS"))
-            {
-                ansB.setEnabled(false);
-            }
-           else {
-
-                txt1.setText(slotsmorn);
-                txt2.setText(slotseve);
-            }
+            txt1.setText(slotsmorn);
+            txt2.setText(slotseve);
+        }
     }
+
 
 }

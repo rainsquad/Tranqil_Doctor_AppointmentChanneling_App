@@ -15,7 +15,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 
 public class MidvivesLocationMapActivity extends AppCompatActivity {
-    ImageView Direction1,Direction2,Direction3;
+    ImageView Direction1,Direction2,Direction3,Direction4,Direction5,Direction6,imgBack;
     MapView mapView;
     GoogleMap map;
 
@@ -26,6 +26,11 @@ public class MidvivesLocationMapActivity extends AppCompatActivity {
         Direction1 = findViewById(R.id.GovernmentMidwiferyServiceAssociation);
         Direction2 = findViewById(R.id.PublicHealthMidwifeNawinna);
         Direction3 = findViewById(R.id.CastleStreetHospitalforWomen);
+        Direction4 = findViewById(R.id.PublicHealthChecker);
+        Direction5 = findViewById(R.id.Publichealthmidwife);
+        imgBack = findViewById(R.id.imgBack);
+
+
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
@@ -35,7 +40,12 @@ public class MidvivesLocationMapActivity extends AppCompatActivity {
         Fragment fragment = new MapFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,fragment).commit();
 
-
+    imgBack.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            onBackPressed();
+        }
+    });
 
 
     Direction1.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +84,35 @@ public class MidvivesLocationMapActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
+            }
+        });
+        Direction4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.google.com/maps/dir/6.9107712,79.8851072/WWR9%2BXGW+Public+Health+Checker+(Midwife),+TC+Rd,+Kolonnawa/@6.9258026,79.8889208,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae259e9a38b69b3:0x37df83d01d5f298c!2m2!1d79.9188987!2d6.9425568" + "   " );
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                intent.setPackage("com.google.android.apps.maps");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+
 
             }
         });
+        Direction5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.google.com/maps/dir/6.9107712,79.8851072/Public+Health+Midwife+(Weaboda+North+),+Webada+Rd/@6.9708963,79.8660697,12z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3ae2f97a931e0847:0x45ff6c4ca689cf3e!2m2!1d79.9977423!2d7.0186035" + "   " );
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                intent.setPackage("com.google.android.apps.maps");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+
+
+            }
+        });
+
 
 
 

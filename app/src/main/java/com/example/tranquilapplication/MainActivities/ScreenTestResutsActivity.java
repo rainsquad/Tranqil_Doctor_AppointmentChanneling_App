@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -31,6 +32,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 
     Dialog mDialog;
     RelativeLayout layout;
+    ImageView imgBack;
 
 
 
@@ -45,6 +47,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
         mDialog = new Dialog(this);
         layout = findViewById(R.id.testpopup);
         button = findViewById(R.id.button);
+        imgBack = findViewById(R.id.imgBack);
 
 
 
@@ -58,11 +61,11 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 
         txtResultsSuggest = findViewById(R.id.txtResultsSuggest);
         if (score <= 8) {
-            txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU HAVE NO RISK OF " + depressionType + " DEPRESSION AT THE TIME. WHAT YPU ARE EXPERIENCING COULD BE A MILD DISCOMFORT");
+            txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU HAVE NO RISK OF " + depressionType + " DEPRESSION AT THE TIME. WHAT YOU ARE EXPERIENCING COULD BE A MILD DISCOMFORT.");
             txtNextStep.setText("IN CASE YOU CONTINUE EXPERIENCING ANY DISCOMFORTING SYMPTOMS IT IS RECOMMENDED THAT YOU CONDUCT ANOTHER SCREENING TEST IN 2 WEEKS TIME.");
 
         } else {
-            txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU MAY BE HAVING A RISK OF " + depressionType + " DEPRESSION. YOU ABSOLUTELY HAVE NOTHING TO WORRY ABOUT SINCE " + depressionType + " DEPRESSION IS A COMPLETELY NORMAL AND TREATABLE CONDITION!");
+            txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU MAY BE HAVING A RISK OF " + depressionType + " DEPRESSION. YOU ABSOLUTELY HAVE NOTHING TO WORRY ABOUT SINCE " + depressionType + " DEPRESSION IS A COMPLETELY NORMAL AND TREATABLE CONDITION!.");
             txtNextStep.setText("SINCE YOUR TEST SCORE REFLECTS A RISK FOR " + depressionType + " DEPRESSION, WE SUGGEST THAT YOU PROCEED TO CLINICAL DIAGNOSIS WITH A PSYCHIATRIST.");
             btnNextStep.setText("CLICK HERE");
             btnNextStep.setVisibility(View.VISIBLE);
@@ -73,6 +76,12 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 //               Intent intentmy = new Intent(ScreenTestResutsActivity.this,Testpopupwindow.class);
 //               startActivity(intentmy);
                 CreatepopUpwindow(score);
+            }
+        });
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 

@@ -15,7 +15,7 @@
         android:layout_width="42dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="341dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_round_back"
@@ -35,6 +35,7 @@
         android:layout_gravity="left"
 
         android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="136dp"
         android:text="ENTER YOUR LOGIN DETAILS"
@@ -43,7 +44,8 @@
         app:layout_constraintBottom_toTopOf="@+id/txtloginEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack" />
 
     <EditText
         android:id="@+id/txtloginEmail"

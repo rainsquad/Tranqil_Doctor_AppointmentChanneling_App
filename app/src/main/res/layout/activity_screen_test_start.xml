@@ -29,12 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
+        android:layout_marginTop="22dp"
         android:layout_marginBottom="24dp"
         android:text="EPDS: POSTPARDUM DEPRESSION TEST"
         android:textAlignment="center"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack"
         tools:layout_editor_absoluteX="35dp" />
 
     <TextView
@@ -42,43 +44,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
         android:text="Note"
         android:textColor="@color/Red"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:text="EPDS is the internationally recognized screening test for the detection of the vulnerability for postpartum depression which is currently being used in Sri Lanka as well. This questionaire contains 10 standard questions that must be answered based on your experiance during past week."
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="180dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:text="This screening test requires no professional expertise unless your test feedback suggests you to consult a psychiatrist"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnstartscreening"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -93,26 +104,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/choices_layout"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:background="@drawable/button_round"
         android:text="START SCREENING"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btnpreviousresults" />
+        app:layout_constraintBottom_toTopOf="@+id/btnpreviousresults"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnpreviousresults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/choices_layout"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_round_grey"
         android:text="PREVIOUS RESULTS"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="NotSibling" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -169,9 +169,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
 
                                 >
 
@@ -180,6 +181,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+
                                     android:background="@drawable/icon_videocam" />
 
                                 <TextView
@@ -298,9 +300,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
 
                                 >
 
@@ -427,9 +430,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
 
                                 >
 
@@ -556,9 +560,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
 
                                 >
 
@@ -685,9 +690,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
 
                                 >
 
@@ -814,10 +820,10 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="20dp"
                                 android:background="@drawable/button_round"
-                                android:padding="5dp"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
                                 >
 
                                 <ImageView
@@ -868,15 +874,7 @@
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,8 +45,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         String timeslot;
         holder.patientId.setText("PATIENT NAME : " + users.get(position).getPatientid());
         holder.patientResults.setText("EPDS SCORE : " + users.get(position).getPatienttestresults());
-        holder.appointmentId.setText(String.valueOf(users.get(position).getId()));
+        holder.appointmentId.setText(""+users.get(position).getId());
         holder.status.setText("APPOINTMENT STATUS : "+users.get(position).getDoctorapprovalstatus());
+        holder.TimeslotRequested.setText(""+users.get(position).getTimeslotrequested());
+
+
 
 
         if (position == 0) {
@@ -54,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             timeslot = "TIME SLOT : 9.00 am - 10.00 am";
         } else if (position == 1) {
             holder.indexhide.setText("TIME SLOT : 10.00 am - 11.00 am");
-            timeslot = "TIME SLOT : 9.00 am - 10.00 am";
+            timeslot = "TIME SLOT : 10.00 am - 11.00 am";
         } else if (position == 2) {
             holder.indexhide.setText("TIME SLOT : 11.00 am - 12.00 pm");
             timeslot = "TIME SLOT : 11.00 am - 12.00 pm";
@@ -78,6 +81,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 i.putExtra("tMarks", holder.patientResults.getText().toString());
                 i.putExtra("tSlot", holder.indexhide.getText().toString());
                 i.putExtra("AppointmentId",Integer.parseInt(holder.appointmentId.getText().toString()));
+                i.putExtra("Status",holder.status.getText().toString());
 
                 context.startActivity(i);
             }
@@ -93,7 +97,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView patientResults, patientId, indexhide, appointmentId, status;
+        TextView patientResults, patientId, indexhide, appointmentId, status,TimeslotRequested;
 
 
         public MyViewHolder(@NonNull View itemView
@@ -104,6 +108,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             indexhide = itemView.findViewById(R.id.indexhide);
             appointmentId = itemView.findViewById(R.id.aId);
             status = itemView.findViewById(R.id.status);
+            TimeslotRequested = itemView.findViewById(R.id.timeslotrequest);
+
 
 
         }

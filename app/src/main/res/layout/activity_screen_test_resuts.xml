@@ -10,6 +10,30 @@
     android:background="@color/white"
     android:id="@+id/scrollid"
     tools:context=".MainActivities.MainMenuActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="347dp"
+        android:background="@drawable/button_round_back"
+        android:outlineSpotShadowColor="@color/black"
+        android:padding="5dp"
+        android:src="@drawable/icon_back"
+    />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TEST RESULTS"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#8A8585"/>
 
 
 
@@ -24,6 +48,7 @@
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
 
+
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -36,9 +61,10 @@
 
                     >
 
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="184dp"
+                        android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="12dp"
@@ -50,7 +76,7 @@
                         <LinearLayout
                             android:id="@+id/clickEPDS"
                             android:layout_width="match_parent"
-                            android:layout_height="184dp"
+                            android:layout_height="wrap_content"
                             android:gravity="left"
                             android:orientation="vertical"
                             android:padding="8dp">
@@ -85,7 +111,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="223dp"
+                        android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="12dp"
@@ -97,7 +123,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="222dp"
+                            android:layout_height="wrap_content"
                             android:background="#666666"
                             android:gravity="center"
                             android:orientation="vertical"
@@ -118,10 +144,11 @@
 
                                 <TextView
 
-                                    android:layout_width="match_parent"
-                                    android:layout_height="32dp"
-                                    android:layout_gravity="bottom"
-                                    android:gravity="left"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="left"
+                                    android:foregroundGravity="top"
+                                    android:gravity="center"
                                     android:text="WHAT SHOULD I DO NEXT?"
                                     android:textColor="@color/white"
                                     android:textSize="16sp" />
@@ -143,8 +170,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:background="@drawable/button_round"
-                                android:paddingLeft="40dp"
-                                android:paddingRight="40dp"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
                                 android:text="CLICK HERE"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
@@ -225,7 +252,7 @@
                                             <TextView
                                                 android:id="@+id/midvivesNawala"
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
                                                 android:textSize="14sp" />
@@ -279,10 +306,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -332,10 +359,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -385,10 +412,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -438,10 +465,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -490,10 +517,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -542,10 +569,10 @@
 
                                             <TextView
                                                 android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
+                                                android:layout_height="wrap_content"
                                                 android:gravity="center"
                                                 android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
-                                                android:textSize="12sp" />
+                                                android:textSize="14sp" />
 
 
                                         </LinearLayout>
@@ -579,16 +606,8 @@
 
             </RelativeLayout>
         </ScrollView>
+    </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
