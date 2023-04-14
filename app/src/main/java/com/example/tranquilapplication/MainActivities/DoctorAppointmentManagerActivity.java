@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.AppointmentResponseModel;
 import com.example.tranquilapplication.ResponseModels.Users;
-import com.example.tranquilapplication.Services.Adapter;
+import com.example.tranquilapplication.Services.MorningSessionAdapter;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
 import com.zegocloud.uikit.prebuilt.call.config.ZegoNotificationConfig;
@@ -38,7 +38,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
     LinearLayout VideoCall;
     ImageView imgBack3;
 
-    private Adapter adapter;
+    private MorningSessionAdapter adapter;
     private NetworkService apiInterface;
     private List<Users> users;
 

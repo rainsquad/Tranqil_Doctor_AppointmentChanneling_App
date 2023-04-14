@@ -17,10 +17,10 @@ public class QuestionAnswersClass {
     };
 
     public static String choices[][] = {
-            {"As much as I always could","Not quite so much now","Definitely not so much now","Not at all"},
-            {"As much as I ever did","Rather less than I used to","Definitely less than I used to","Hardly at all"},
+            {"Not at all","Definitely not so much now","Not quite so much now","As much as I always could"},
+            {"Hardly at all","Definitely less than I used to","Rather less than I used to","As much as I ever did"},
             {"Yes, most of the time","Yes, some of the time","Not very often","No, never"},
-            {"No, not at all","Hardly ever","Yes, sometimes","Yes, very often"},
+            {"Yes, very often","Yes, sometimes","Hardly ever","No, not at all"},
             {"Yes, quite a lot","Yes, sometimes","No, not much","No, not at all"},
             {"Yes, most of the time I haven't been able to cope at all","Yes, sometimes I haven't been coping as well as usual","No, most of the time I have coped quite well","No, I have been coping as well as ever"},
             {"Yes, most of the time","Yes, sometimes","Not very often","No, not at all"},

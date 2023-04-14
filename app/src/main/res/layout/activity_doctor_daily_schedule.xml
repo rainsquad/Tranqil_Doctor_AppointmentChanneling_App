@@ -5,55 +5,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivities.DoctorDailyScheduleActivity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-       >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="SCHEDULE FOR THE DAY"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="SELECT DATE TO SEE YOUR APPOINTMENTS"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-        <CalendarView
-            android:id="@+id/calenderView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="20dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/DateselectHidden"
-            android:visibility="invisible"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/progressBar"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </LinearLayout>
-</ScrollView>
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="SCHEDULE FOR THE DAY"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="SELECT DATE TO SEE YOUR APPOINTMENTS"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <CalendarView
+                android:id="@+id/calenderView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp" />
+
+            <TextView
+                android:id="@+id/DateselectHidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="SELECT SESSION"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:orientation="horizontal"
+                android:columnCount="2"
+                android:rowCount="1"
+
+                >
+
+                <Button
+                    android:id="@+id/btnMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_round_white"
+                    android:paddingLeft="15dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="100dp"
+                    android:paddingRight="15dp"
+                    android:text="MORNING"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/btnEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@drawable/button_round_white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_marginRight="100dp"
+                    android:text="EVENING"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/txtMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible" />.
+
+                <TextView
+                    android:id="@+id/txtEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible" />.
+
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/txtRecordsAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No records available"
+                android:gravity="center"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

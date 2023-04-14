@@ -17,13 +17,13 @@ import com.example.tranquilapplication.ResponseModels.Users;
 
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+public class MorningSessionAdapter extends RecyclerView.Adapter<MorningSessionAdapter.MyViewHolder> {
 
     private List<Users> users;
     private Context context;
 
 
-    public Adapter(List<Users> users, Context context) {
+    public MorningSessionAdapter(List<Users> users, Context context) {
         this.users = users;
 
         this.context = context;
@@ -61,15 +61,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         } else if (position == 2) {
             holder.indexhide.setText("TIME SLOT : 11.00 am - 12.00 pm");
             timeslot = "TIME SLOT : 11.00 am - 12.00 pm";
-        } else if (position == 3) {
-            holder.indexhide.setText("TIME SLOT : 2.00 pm - 3.00 pm");
-            timeslot = "TIME SLOT : 2.00 pm - 3.00 pm";
-        } else if (position == 4) {
-            holder.indexhide.setText("TIME SLOT : 3.00 pm - 4.00 pm");
-            timeslot = "TIME SLOT : 3.00 pm - 4.00 pm";
-        } else {
-            holder.indexhide.setText("TIME SLOT : 4.00 pm - 5.00 pm");
-            timeslot = "TIME SLOT : 4.00 pm - 5.00 pm";
         }
 
 

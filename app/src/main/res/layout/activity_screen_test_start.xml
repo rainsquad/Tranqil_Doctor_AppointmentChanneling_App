@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:layout_gravity="center"
     tools:context=".MainActivities.ScreenTestStartActivity">
 
 
@@ -30,32 +30,76 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
         android:layout_marginTop="22dp"
-        android:layout_marginBottom="24dp"
         android:text="EPDS: POSTPARDUM DEPRESSION TEST"
         android:textAlignment="center"
         android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintTop_toBottomOf="@+id/imgBack"
         tools:layout_editor_absoluteX="35dp" />
+
+    <GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:columnCount="3"
+        android:foregroundGravity="center_horizontal"
+        android:orientation="horizontal"
+        android:rowCount="1"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/button_round_white"
+            android:text="English"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="සිංහල"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="தமிழ்"
+            android:textSize="10sp" />
+
+
+    </GridLayout>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="22dp"
         android:layout_above="@id/choices_layout"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
         android:text="Note"
         android:textColor="@color/Red"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2" />
 
     <TextView
         android:id="@+id/textView5"
@@ -63,11 +107,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
         android:text="EPDS is the internationally recognized screening test for the detection of the vulnerability for postpartum depression which is currently being used in Sri Lanka as well. This questionaire contains 10 standard questions that must be answered based on your experiance during past week."
-        android:textSize="16dp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +125,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="100dp"
         android:text="This screening test requires no professional expertise unless your test feedback suggests you to consult a psychiatrist"
-        android:textSize="16dp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnstartscreening"
         app:layout_constraintEnd_toEndOf="parent"

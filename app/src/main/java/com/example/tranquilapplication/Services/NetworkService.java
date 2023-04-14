@@ -54,6 +54,13 @@ public interface NetworkService {
             @Query("doctorid") String doctorid
 
     );
+    @GET("getdoctorscheduleddatesevening.php")
+    Call<List<Users>> getUsers2(
+
+            @Query("key") String key,
+            @Query("doctorid") String doctorid
+
+    );
 
     @GET("FetchNotification.php")
     Call<List<Users>> getNotification(

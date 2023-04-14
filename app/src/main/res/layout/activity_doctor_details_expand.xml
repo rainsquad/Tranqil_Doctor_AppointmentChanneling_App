@@ -173,18 +173,21 @@
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+
                             android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="left"
-                                android:orientation="vertical">
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:padding="15dp">
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
+
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingRight="@dimen/_40sdp"
@@ -194,9 +197,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:paddingRight="@dimen/_40sdp"
                                     android:text="Tuesday"
                                     android:textColor="@color/black"
@@ -204,9 +207,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:paddingRight="@dimen/_40sdp"
                                     android:text="Wednsday"
                                     android:textColor="@color/black"
@@ -214,9 +217,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:paddingRight="@dimen/_40sdp"
                                     android:text="Thursday"
                                     android:textColor="@color/black"
@@ -224,9 +227,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:paddingRight="@dimen/_40sdp"
                                     android:text="Friday"
                                     android:textColor="@color/black"
@@ -236,16 +239,17 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_marginTop="15dp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="right"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="15dp"
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:gravity="right"
                                     android:paddingLeft="40dp"
                                     android:text="9.00 am- 4.30 pm"
@@ -254,9 +258,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:gravity="right"
                                     android:paddingLeft="40dp"
                                     android:text="9.00am -5.00 pm"
@@ -265,9 +269,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
 
                                     android:paddingLeft="39dp"
                                     android:text="9.00 am- 4.30 pm"
@@ -276,9 +280,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:gravity="right"
                                     android:paddingLeft="40dp"
                                     android:text="9.00am -5.00 pm"
@@ -287,9 +291,9 @@
 
 
                                 <TextView
-                                    android:layout_marginTop="15dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="15dp"
                                     android:gravity="right"
                                     android:paddingLeft="40dp"
                                     android:text="9.00 am- 4.30 pm"

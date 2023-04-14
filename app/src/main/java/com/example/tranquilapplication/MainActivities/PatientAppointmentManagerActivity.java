@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Users;
-import com.example.tranquilapplication.Services.Adapter;
+import com.example.tranquilapplication.Services.MorningSessionAdapter;
 import com.example.tranquilapplication.Services.NetworkService;
 import com.zegocloud.uikit.prebuilt.call.config.ZegoNotificationConfig;
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
@@ -29,7 +29,7 @@ public class PatientAppointmentManagerActivity extends AppCompatActivity {
     LinearLayout VideoCall;
     ImageView imgBack3;
 
-    private Adapter adapter;
+    private MorningSessionAdapter adapter;
     private NetworkService apiInterface;
     private List<Users> users;
 
