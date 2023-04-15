@@ -14,10 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +32,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tranquilapplication.ResponseModels.NotificationReminderBroadcadst;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
 import com.example.tranquilapplication.R;
@@ -111,6 +117,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
         //  OnDateChangeListener();
 
+        createNotificationChannel();
 
         //get doctor name from previous activity
         String doc1name = getIntent().getStringExtra("doc1");
@@ -166,9 +173,24 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+
+
+
     }
+    private  void createNotificationChannel()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Tranquil notifications";
+            String descripion = "Tranquil Appointment Manager";
 
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("notifypatient", name, importance);
+            channel.setDescription(descripion);
 
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 
 
     //Validating time selector
@@ -296,9 +318,27 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         params.put("doctorapprovalstatus", statusHidden.getText().toString());
 
         doctorschedule(params);
+        notifypatient();
 
     }
+    public void notifypatient()
+    {
+        Toast.makeText(this, "notification set", Toast.LENGTH_SHORT).show();
+        String doctor = docName.getText().toString();
 
+        Intent intent  = new Intent(BookDoctorActivity.this, NotificationReminderBroadcadst.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(BookDoctorActivity.this,0,intent,0);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonCLick   = System.currentTimeMillis();
+
+        long tenSeconds =  1000*10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP,
+                timeAtButtonCLick + tenSeconds,pendingIntent);
+
+    }
 
     private void doctorschedule(HashMap<String, String> params) {
         final ProgressDialog progressDialog = new ProgressDialog(BookDoctorActivity.this);
