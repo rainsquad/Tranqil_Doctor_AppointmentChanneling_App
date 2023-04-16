@@ -299,6 +299,8 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         } else {
             UploadDoctorSchedule();
 
+
+
         }
 
 
@@ -318,7 +320,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         params.put("doctorapprovalstatus", statusHidden.getText().toString());
 
         doctorschedule(params);
-        notifypatient();
+
 
     }
     public void notifypatient()
@@ -357,8 +359,14 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                 if (responseBody != null) {
                     if (responseBody.getSuccess().equals("1")) {
                         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCE_NAME, MODE_PRIVATE);
+
+                        notifypatient();
+
+
+
                         Intent i = new Intent(BookDoctorActivity.this, AppointmentConfirmedActivity.class);
-                        startActivity(i);
+                    startActivity(i);
+
                         finish();
                     } else {
                         Toast.makeText(BookDoctorActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();

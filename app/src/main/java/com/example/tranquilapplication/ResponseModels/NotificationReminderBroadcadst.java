@@ -47,6 +47,7 @@ public class NotificationReminderBroadcadst extends BroadcastReceiver {
                 .setContentIntent(pi)   ;
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         notificationManagerCompat.notify(123, builder.build());
+
     }
 
 
