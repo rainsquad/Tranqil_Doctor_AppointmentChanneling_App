@@ -35,8 +35,8 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="FIND NEARBY MIDVIVES"
             android:gravity="center"
             android:layout_gravity="center"

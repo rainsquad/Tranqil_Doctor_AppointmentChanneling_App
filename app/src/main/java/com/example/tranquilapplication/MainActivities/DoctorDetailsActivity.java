@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.tranquilapplication.R;
@@ -19,13 +20,15 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     CardView crd1,crd2,crd3,crd4,crd5,crd6;
-
+    ImageView imgback;
     LinearLayout book1,book2,book3,book4,book5,book6,clickID1,clickID2,clickID3,clickID4,clickID5,clickID6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
+
+        imgback = findViewById(R.id.imgBack);
 
         crd1 = findViewById(R.id.crd1);
         crd2 = findViewById(R.id.crd2);
@@ -52,7 +55,12 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         Intent doc = getIntent();
         int score = doc.getIntExtra("testMarks", 0);
 
-
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
         clickID1.setOnClickListener(new View.OnClickListener() {

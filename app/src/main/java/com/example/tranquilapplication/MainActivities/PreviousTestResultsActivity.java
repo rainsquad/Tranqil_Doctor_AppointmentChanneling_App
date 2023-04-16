@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
@@ -28,6 +29,8 @@ import retrofit2.Response;
 public class PreviousTestResultsActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private List<Users> users;
+    ImageView imgback;
+
 
 
 
@@ -41,7 +44,7 @@ public class PreviousTestResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_previous_test_results);
 
-
+        imgback = findViewById(R.id.imgBack);
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -49,6 +52,12 @@ public class PreviousTestResultsActivity extends AppCompatActivity {
 
 
         fetchNotification();
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 

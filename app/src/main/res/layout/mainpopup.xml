@@ -22,7 +22,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_gravity="center"
+
             android:layout_marginTop="@dimen/_20sdp"
             android:text="TRANQUIL RECOMMENDATION"
             android:textColor="@color/black"
@@ -50,7 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:paddingHorizontal="15dp"
             android:background="@drawable/button_round"
             android:orientation="horizontal">
 
