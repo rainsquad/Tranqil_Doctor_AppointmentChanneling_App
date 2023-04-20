@@ -22,24 +22,41 @@ public class MapFragment extends Fragment {
        @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
+           // Inflate the layout for this fragment
            View view = inflater.inflate(R.layout.fragment_map,container,false);
+
+
+
 
            SupportMapFragment supportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.MY_MAP);
            supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                @Override
                public void onMapReady(@NonNull GoogleMap googleMap) {
-                   googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                       @Override
-                       public void onMapClick(@NonNull LatLng latLng) {
-                           MarkerOptions markerOptions = new MarkerOptions();
-                           markerOptions.position(latLng);
-                           markerOptions.title(latLng.latitude + "KG"+ latLng.longitude);
-                           googleMap.clear();
-                           googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,20));
-                           googleMap.addMarker(markerOptions);
-                       }
-                   });
+//                   googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+//                       @Override
+//                       public void onMapClick( LatLng latLng) {
+//                           MarkerOptions markerOptions = new MarkerOptions();
+//                           markerOptions.position(latLng);
+//
+//                           googleMap.clear();
+//                           googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,20));
+//                           googleMap.addMarker(markerOptions);
+//
+//
+//                       }
+//                   });
+
+
+
+
+                       LatLng sydney = new LatLng(6.919976718611493, 79.87052391958046);
+                       googleMap.addMarker(new MarkerOptions()
+                               .position(sydney)
+                               .title("De Soysa Hospital for Women"));
+                   googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,20));
+
                }
            });
         return view;

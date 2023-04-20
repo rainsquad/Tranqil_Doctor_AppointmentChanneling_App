@@ -101,6 +101,8 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
 
+
+
         //Getting Loged-in user using shared preferences
         sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
 
@@ -117,7 +119,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
         //  OnDateChangeListener();
 
-        createNotificationChannel();
+
 
         //get doctor name from previous activity
         String doc1name = getIntent().getStringExtra("doc1");
@@ -138,10 +140,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
         String tMarks = testMarks.getText().toString();
 
-        if (Integer.parseInt(tMarks)!=0)
-        {
-        testMarks.setEnabled(false);
-        }else {
+        if (Integer.parseInt(tMarks) != 0) {
+            testMarks.setEnabled(false);
+        } else {
             testMarks.setEnabled(true);
         }
 
@@ -168,29 +169,16 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                 DateselectHidden.setText(sd);
                 ansA.setEnabled(true);
                 ansB.setEnabled(true);
-
+                txt1.setText("3 SLOTS");
+                txt2.setText("3 SLOTS");
                 doctorcheck();
             }
         });
 
 
-
-
     }
-    private  void createNotificationChannel()
-    {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Tranquil notifications";
-            String descripion = "Tranquil Appointment Manager";
 
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("notifypatient", name, importance);
-            channel.setDescription(descripion);
 
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 
 
     //Validating time selector
@@ -236,9 +224,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     timeSlot1.setText("0 SLOTS");
                     timeSlot2.setText(txt2.getText().toString());
                     checktestMrks();
-                } else {
-                    Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
-
+                } else if(txt1.getText().toString().equals("0 SLOTS")){
+                    Toast.makeText(this, "NO MORNING SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
+                    timeSlot1.setText("NO SLOTS");
                 }
             } else if (PrefTimeSLotHidden.getText().toString().equals("2.00 pm - 5.00pm")) {
 
@@ -255,8 +243,9 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     timeSlot2.setText("0 SLOTS");
                     timeSlot1.setText(txt1.getText().toString());
                     checktestMrks();
-                } else {
-                    Toast.makeText(this, "NO SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
+                } else if(txt2.getText().toString().equals("0 SLOTS")) {
+                    timeSlot2.setText("NO SLOTS");
+                    Toast.makeText(this, "NO EVENING SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
 
                 }
             } else {
@@ -290,15 +279,14 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
             Toast.makeText(this, "Enter your test results ", Toast.LENGTH_SHORT).show();
 
         } else if (score > 30) {
-            Toast.makeText(this, "Your test marks should be between 10-30", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Your test marks should be between 9-30", Toast.LENGTH_SHORT).show();
         } else if (score < 10) {
-            Toast.makeText(this, "Your test marks should be between 10-30", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Your test marks should be between 9-30", Toast.LENGTH_SHORT).show();
         } else if (PrefTimeSLotHidden.getText().toString().equals("")) {
             Toast.makeText(this, "Select a time slot", Toast.LENGTH_SHORT).show();
 
         } else {
             UploadDoctorSchedule();
-
 
 
         }
@@ -323,24 +311,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
 
     }
-    public void notifypatient()
-    {
-        Toast.makeText(this, "notification set", Toast.LENGTH_SHORT).show();
-        String doctor = docName.getText().toString();
 
-        Intent intent  = new Intent(BookDoctorActivity.this, NotificationReminderBroadcadst.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(BookDoctorActivity.this,0,intent,0);
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        long timeAtButtonCLick   = System.currentTimeMillis();
-
-        long tenSeconds =  1000*10;
-
-        alarmManager.set(AlarmManager.RTC_WAKEUP,
-                timeAtButtonCLick + tenSeconds,pendingIntent);
-
-    }
 
     private void doctorschedule(HashMap<String, String> params) {
         final ProgressDialog progressDialog = new ProgressDialog(BookDoctorActivity.this);
@@ -360,12 +331,11 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     if (responseBody.getSuccess().equals("1")) {
                         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCE_NAME, MODE_PRIVATE);
 
-                        notifypatient();
-
+//                        notifypatient();
 
 
                         Intent i = new Intent(BookDoctorActivity.this, AppointmentConfirmedActivity.class);
-                    startActivity(i);
+                        startActivity(i);
 
                         finish();
                     } else {
@@ -418,8 +388,8 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
                         display();
                     } else if (responseBody.getSuccess().equals("0")) {
-                        txt1.setText("3 SLOTS");
-                        txt2.setText("3 SLOTS");
+//                        txt1.setText("3 SLOTS");
+//                        txt2.setText("3 SLOTS");
 
                         Toast.makeText(BookDoctorActivity.this, responseBody.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -437,18 +407,40 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void display() {
-        sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        String name = sharedPreferences.getString(KEY_DOC_ID, null);
-        String date = sharedPreferences.getString(KEY_BOOKED_DATE, null);
+//        sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+//        String name = sharedPreferences.getString(KEY_DOC_ID, null);
+//        String date = sharedPreferences.getString(KEY_BOOKED_DATE, null);
         String slotsmorn = sharedPreferences.getString(KEY_SLOTS_LEFT_MORNING, null);
         String slotseve = sharedPreferences.getString(KEY_SLOTS_LEFT_EVE, null);
 
-        if (String.valueOf(slotsmorn).equals("0 SLOTS")) {
-            ansA.setEnabled(false);
-        } else if (String.valueOf(slotseve).equals("0 SLOTS")) {
-            ansB.setEnabled(false);
-        } else {
 
+
+
+        if (slotsmorn.equals("0 SLOTS") && !slotseve.equals("0 SLOTS")) {
+            txt1.setText("0 SLOTS");
+            txt2.setText(slotseve);
+            ansA.setEnabled(false);
+            ansB.setEnabled(true);
+            Toast.makeText(this, "Morning session is fully booked!", Toast.LENGTH_SHORT).show();
+
+        } else if (slotseve.equals("0 SLOTS") && !slotsmorn.equals("0 SLOTS")) {
+            txt2.setText("0 SLOTS");
+            txt1.setText(slotsmorn);
+            ansB.setEnabled(false);
+            ansA.setEnabled(true);
+
+            Toast.makeText(this, "Evening session is fully booked!", Toast.LENGTH_SHORT).show();
+
+        } else if (slotseve.equals("0 SLOTS") && slotsmorn.equals("0 SLOTS")) {
+
+            txt2.setText("0 SLOTS");
+            txt1.setText("0 SLOTS");
+            ansA.setEnabled(false);
+            ansB.setEnabled(false);
+
+        } else {
+            ansA.setEnabled(true);
+            ansB.setEnabled(true);
             txt1.setText(slotsmorn);
             txt2.setText(slotseve);
         }

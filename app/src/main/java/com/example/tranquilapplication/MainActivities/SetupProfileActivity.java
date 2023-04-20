@@ -188,7 +188,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                 }
 
                 else {
-
+                    txtHidden.setText("Postpartum Stage");
                     // get selected radio button from radioGroup
                     int selectedId = radioGroup.getCheckedRadioButtonId();
 

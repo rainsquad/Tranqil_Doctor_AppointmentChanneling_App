@@ -35,15 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:gravity="left"
-            android:text="We have identified that your EPDS score is a bit higher than what is normal and there can be a little risk of depression."
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="left"
+            android:gravity="center"
             android:text="There is nothing to worry because we have a bunch of experienced and qualified doctors who have registered and willing to treat you ❤"
             android:textSize="16sp" />
 

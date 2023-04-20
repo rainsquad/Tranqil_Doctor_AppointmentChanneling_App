@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.ResponseModels.Users;
+import com.example.tranquilapplication.Services.EveningSessionAdapter;
 import com.example.tranquilapplication.Services.MorningSessionAdapter;
 import com.example.tranquilapplication.Services.NetworkClient;
 import com.example.tranquilapplication.Services.NetworkService;
@@ -37,6 +38,7 @@ public class DoctorDailyScheduleActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private List<Users> users;
     private MorningSessionAdapter adapter;
+    private  EveningSessionAdapter adapter2;
     private NetworkService apiInterface;
     CalendarView calendarView;
     SharedPreferences sharedPreferences;
@@ -168,10 +170,10 @@ public class DoctorDailyScheduleActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
                 users = response.body();
-                adapter = new MorningSessionAdapter(users, DoctorDailyScheduleActivity.this);
-                recyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
-                if (adapter.getItemCount()==0){
+                adapter2 = new EveningSessionAdapter(users, DoctorDailyScheduleActivity.this);
+                recyclerView.setAdapter(adapter2);
+                adapter2.notifyDataSetChanged();
+                if (adapter2.getItemCount()==0){
                     txtRecordsAvailable.setVisibility(View.VISIBLE);
                 }else{
                     txtRecordsAvailable.setVisibility(View.INVISIBLE);

@@ -6,6 +6,7 @@ import com.example.tranquilapplication.ResponseModels.LoginResponseModel;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
 import com.example.tranquilapplication.ResponseModels.RegistrationResponseModel;
 import com.example.tranquilapplication.ResponseModels.SetupProfileResponseModel;
+import com.example.tranquilapplication.ResponseModels.TestResults;
 import com.example.tranquilapplication.ResponseModels.Users;
 
 import java.util.HashMap;
@@ -68,7 +69,12 @@ public interface NetworkService {
             @Query("patientid") String patientid
 
     );
+    @GET("getTestResults.php")
+    Call<List<TestResults>> getTestResults(
 
+            @Query("userid") String patientid
+
+    );
 //    @FormUrlEncoded
 //    @POST("appointmentaccept.php")
 //    Call<AppointmentResponseModel> doctorappointmentaccept(@FieldMap HashMap<String, String> params);

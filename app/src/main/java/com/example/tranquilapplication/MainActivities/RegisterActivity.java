@@ -10,11 +10,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -151,15 +160,25 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Enter Last name", Toast.LENGTH_SHORT).show();
                 } else if (inputemail.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
-                } else if (inputPassword.getText().toString().equals("")) {
+                } else if (!isValidEmail(inputemail.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "Enter valid email", Toast.LENGTH_SHORT).show();
+                }
+                else if (inputPassword.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
                 } else if (txtPwdtwo.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Re-enter password", Toast.LENGTH_SHORT).show();
-                } else if (inputMobile.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Enter mobile", Toast.LENGTH_SHORT).show();
-                } else if (inputfamilynumber.getText().toString().equals("")) {
+                } else if (inputMobile.getText().toString().equals("") ) {
+                    Toast.makeText(RegisterActivity.this, "Enter mobile number", Toast.LENGTH_SHORT).show();
+                }
+                else if (inputMobile.getText().toString().length() !=10 ) {
+                    Toast.makeText(RegisterActivity.this, "Enter valid mobile number", Toast.LENGTH_SHORT).show();
+                }else if (inputfamilynumber.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Enter family/home mobile", Toast.LENGTH_SHORT).show();
-                } else if (!inputPassword.getText().toString().equals(txtPwdtwo.getText().toString())) {
+                }
+                else if (inputfamilynumber.getText().toString().length()!= 10 ) {
+                    Toast.makeText(RegisterActivity.this, "Enter valid family/home mobile", Toast.LENGTH_SHORT).show();
+                }
+                else if (!inputPassword.getText().toString().equals(txtPwdtwo.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else if (inputPassword.getText().toString().length() < 8 && !isValidPassword(inputPassword.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character", Toast.LENGTH_SHORT).show();
@@ -168,7 +187,9 @@ public class RegisterActivity extends AppCompatActivity {
                     if (bitmap == null) {
                         picture = "";
                     } else {
-                        picture = getStringImage(bitmap);
+                    picture = getStringImage(bitmap);
+                       // picture = getRoundedCroppedBitmap(bitmap);
+
                     }
                     System.out.println(picture);
                     UpdateDataSet(a, b, picture);
@@ -215,6 +236,7 @@ public class RegisterActivity extends AppCompatActivity {
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;
+
     }
 
     @Override
@@ -234,6 +256,24 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
     }
+
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //    public static String getStringImage(Bitmap bmp) {

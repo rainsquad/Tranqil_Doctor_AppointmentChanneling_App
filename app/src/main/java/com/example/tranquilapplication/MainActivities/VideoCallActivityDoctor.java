@@ -31,7 +31,7 @@ public class VideoCallActivityDoctor extends AppCompatActivity {
 
         String userID = getIntent().getStringExtra("userID");
      String userName = getIntent().getStringExtra("UserName");
-        HeyUserTV.setText("Doctor");
+        HeyUserTV.setText("Patient");
         UserIDET.setText(userID);
 
 

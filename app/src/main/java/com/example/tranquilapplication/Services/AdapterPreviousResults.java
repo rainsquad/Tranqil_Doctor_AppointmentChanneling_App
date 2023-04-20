@@ -13,16 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tranquilapplication.MainActivities.PatientAppointmentManagerActivity;
 import com.example.tranquilapplication.R;
+import com.example.tranquilapplication.ResponseModels.TestResults;
 import com.example.tranquilapplication.ResponseModels.Users;
 
 import java.util.List;
 
 public class AdapterPreviousResults extends RecyclerView.Adapter <AdapterPreviousResults.MyViewHolder>{
 
-    private List<Users> users;
+    private List<TestResults> users;
     private Context context;
 
-    public AdapterPreviousResults(List<Users> users, Context context) {
+    public AdapterPreviousResults(List<TestResults> users, Context context) {
         this.users = users;
         this.context = context;
     }
@@ -37,8 +38,8 @@ public class AdapterPreviousResults extends RecyclerView.Adapter <AdapterPreviou
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.bookedDate.setText(""+users.get(position).getBookeddate());
-        holder.patientResults.setText("" + users.get(position).getPatienttestresults());
+        holder.bookedDate.setText(""+users.get(position).getDate());
+        holder.patientResults.setText("" + users.get(position).getTestmarks());
 
 
 

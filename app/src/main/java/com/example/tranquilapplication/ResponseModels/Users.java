@@ -14,6 +14,16 @@ public class Users
     @SerializedName("doctorapprovalstatus") private String doctorapprovalstatus;
     @SerializedName("timeslotrequested") private String timeslotrequested;
 
+    @SerializedName("slotsleftmorning") private String slotsleftmorning;
+    @SerializedName("slotsleftevening") private String slotsleftevening;
+
+    public String getSlotsleftmorning() {
+        return slotsleftmorning;
+    }
+
+    public String getSlotsleftevening() {
+        return slotsleftevening;
+    }
 
     public String getTimeslotrequested() {
         return timeslotrequested;

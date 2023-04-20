@@ -24,9 +24,11 @@ import com.example.tranquilapplication.R;
 import com.example.tranquilapplication.Services.Constants;
 import com.example.tranquilapplication.ResponseModels.QuestionnaireResponseModel;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +46,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
     private static final String KEY_ID = "id";
 
     private static final String KEY_DEPRESSION_TYPE = "depressionType";
-    Date todaydate = Calendar.getInstance().getTime();
+    String todaydate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     RelativeLayout layout;
     String selectedAnswer = "";
 
@@ -133,25 +135,54 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
 
         Button clickedButton = (Button) view;
         if (clickedButton.getId() == R.id.submit_btn) {
-            if (selectedAnswer.equals(QuestionAnswersClass.Answer1[currentQuestionIndex])) {
-                score = new Integer(score + 3);
-                currentQuestionIndex++;
-                loadNewQuestion();
-            } else if (selectedAnswer.equals(QuestionAnswersClass.Answer2[currentQuestionIndex])) {
-                score = new Integer(score + 2);
-                currentQuestionIndex++;
-                loadNewQuestion();
-            } else if (selectedAnswer.equals(QuestionAnswersClass.Answer3[currentQuestionIndex])) {
-                score = new Integer(score + 1);
-                currentQuestionIndex++;
-                loadNewQuestion();
-            } else if (selectedAnswer.equals(QuestionAnswersClass.Answer4[currentQuestionIndex])) {
-                score = new Integer(score + 0);
-                currentQuestionIndex++;
-                loadNewQuestion();
-            } else if (selectedAnswer.equals("")) {
-                Toast.makeText(QuestionnaireActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
 
+            if (currentQuestionIndex == 0 || currentQuestionIndex == 1 || currentQuestionIndex == 3) {
+
+                if (selectedAnswer.equals(QuestionAnswersClass.Answer1[currentQuestionIndex])) {
+                    score = new Integer(score + 0);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer2[currentQuestionIndex])) {
+                    score = new Integer(score + 1);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer3[currentQuestionIndex])) {
+                    score = new Integer(score + 2);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer4[currentQuestionIndex])) {
+                    score = new Integer(score + 3);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals("")) {
+                    Toast.makeText(QuestionnaireActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+            }
+
+            else if(currentQuestionIndex==2 ||currentQuestionIndex == 4 ||currentQuestionIndex==5 ||currentQuestionIndex == 6 ||currentQuestionIndex==7 ||currentQuestionIndex == 8 ||currentQuestionIndex==9 ) {
+                if (selectedAnswer.equals(QuestionAnswersClass.Answer1[currentQuestionIndex])) {
+                    score = new Integer(score + 3);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer2[currentQuestionIndex])) {
+                    score = new Integer(score + 2);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer3[currentQuestionIndex])) {
+                    score = new Integer(score + 1);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals(QuestionAnswersClass.Answer4[currentQuestionIndex])) {
+                    score = new Integer(score + 0);
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                } else if (selectedAnswer.equals("")) {
+                    Toast.makeText(QuestionnaireActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
+
+                }
             }
 
 

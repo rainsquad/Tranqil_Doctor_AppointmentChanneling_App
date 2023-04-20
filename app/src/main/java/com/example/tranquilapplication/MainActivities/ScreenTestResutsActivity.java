@@ -2,9 +2,13 @@ package com.example.tranquilapplication.MainActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,10 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
-
-import java.net.URI;
+import com.example.tranquilapplication.ResponseModels.NotificationReminderBroadcadst;
 
 public class ScreenTestResutsActivity extends AppCompatActivity {
 
@@ -28,12 +32,11 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 
     Button btnNextStep;
 
-    LinearLayout popupbg,button;
+    LinearLayout popupbg, button;
 
     Dialog mDialog;
     RelativeLayout layout;
     ImageView imgBack;
-
 
 
     @Override
@@ -50,10 +53,12 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
 
 
+        createNotificationChannel();
+
 
         //Get the score value from previous activity
         Intent myintent = getIntent();
-       int score = myintent.getIntExtra("message", 0);
+        int score = myintent.getIntExtra("message", 0);
         String depressionType = myintent.getStringExtra("depressionType");
 
         txtView.setText("YOUR SCORE IS : " + score + "/30  ");
@@ -63,7 +68,7 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
         if (score <= 8) {
             txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU HAVE NO RISK OF " + depressionType + " DEPRESSION AT THE TIME. WHAT YOU ARE EXPERIENCING COULD BE A MILD DISCOMFORT.");
             txtNextStep.setText("IN CASE YOU CONTINUE EXPERIENCING ANY DISCOMFORTING SYMPTOMS IT IS RECOMMENDED THAT YOU CONDUCT ANOTHER SCREENING TEST IN 2 WEEKS TIME.");
-
+            notifypatient();
         } else {
             txtResultsSuggest.setText("YOUR TEST SCORE OF " + score + "/30 SUGGESTS THAT YOU MAY BE HAVING A RISK OF " + depressionType + " DEPRESSION. YOU ABSOLUTELY HAVE NOTHING TO WORRY ABOUT SINCE " + depressionType + " DEPRESSION IS A COMPLETELY NORMAL AND TREATABLE CONDITION!.");
             txtNextStep.setText("SINCE YOUR TEST SCORE REFLECTS A RISK FOR " + depressionType + " DEPRESSION, WE SUGGEST THAT YOU PROCEED TO CLINICAL DIAGNOSIS WITH A PSYCHIATRIST.");
@@ -87,6 +92,73 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
 
 
     }
+//    public void notifypatient()
+//    {
+//        Toast.makeText(this, "notification set1", Toast.LENGTH_SHORT).show();
+//
+//
+//        Intent intent  = new Intent(ScreenTestResutsActivity.this, NotificationReminderforEPDStestBroadcadst.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(ScreenTestResutsActivity.this,0,intent,0);
+//
+//        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//
+//        long timeAtButtonCLick   = System.currentTimeMillis();
+//
+//        long tenSeconds =  1000*10;
+//
+//        alarmManager.set(AlarmManager.RTC_WAKEUP,
+//                timeAtButtonCLick + tenSeconds,pendingIntent);
+//
+//    }
+
+
+//    private  void createNotificationChannel()
+//    {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = "Tranquil notifications 2";
+//            String descripion = "Tranquil Appointment Manager 2 ";
+//
+//            int importance = NotificationManager.IMPORTANCE_HIGH;
+//            NotificationChannel channel2 = new NotificationChannel("notifyTest", name, importance);
+//            channel2.setDescription(descripion);
+//
+//            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(channel2);
+//        }
+//    }
+
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Tranquil notifications";
+            String descripion = "Tranquil Appointment Manager";
+
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("notifypatient", name, importance);
+            channel.setDescription(descripion);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public void notifypatient() {
+        Toast.makeText(this, "notification set", Toast.LENGTH_SHORT).show();
+
+
+        Intent intent = new Intent(ScreenTestResutsActivity.this, NotificationReminderBroadcadst.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(ScreenTestResutsActivity.this, 0, intent, 0);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        long timeAtButtonCLick = System.currentTimeMillis();
+
+        long tenSeconds = 1000 * 10;
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP,
+                timeAtButtonCLick + tenSeconds, pendingIntent);
+
+    }
     //pop up window
 
     private void CreatepopUpwindow(int score) {
@@ -105,31 +177,30 @@ public class ScreenTestResutsActivity extends AppCompatActivity {
             }
         });
 
-            TextView  Gotit;
+        TextView Gotit;
 
-            Gotit = popUpView.findViewById(R.id.Gotit);
+        Gotit = popUpView.findViewById(R.id.Gotit);
 
-            Gotit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent doc = new Intent(ScreenTestResutsActivity.this, DoctorDetailsActivity.class);
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent doc = new Intent(ScreenTestResutsActivity.this, DoctorDetailsActivity.class);
 
-                    doc.putExtra("testMarks",score);
-                    startActivity(doc);
-
-
-
-                }
-            });
-            // and if you want to close popup when touch Screen
-            popUpView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    popupWindow.dismiss();
-                    return true;
-                }
-            });
-        }
+                doc.putExtra("testMarks", score);
+                startActivity(doc);
 
 
+            }
+        });
+        // and if you want to close popup when touch Screen
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
     }
+
+
+}

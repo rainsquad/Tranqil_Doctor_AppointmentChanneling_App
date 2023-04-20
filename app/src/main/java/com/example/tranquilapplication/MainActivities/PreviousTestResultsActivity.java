@@ -1,5 +1,6 @@
 package com.example.tranquilapplication.MainActivities;
 
+import static com.example.tranquilapplication.Services.Constants.KEY_ID;
 import static com.example.tranquilapplication.Services.Constants.KEY_NAME;
 import static com.example.tranquilapplication.Services.Constants.PREFERENCE_NAME;
 
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tranquilapplication.R;
+import com.example.tranquilapplication.ResponseModels.TestResults;
 import com.example.tranquilapplication.ResponseModels.Users;
 import com.example.tranquilapplication.Services.AdapterNotification;
 import com.example.tranquilapplication.Services.AdapterPreviousResults;
@@ -28,7 +30,7 @@ import retrofit2.Response;
 
 public class PreviousTestResultsActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    private List<Users> users;
+    private List<TestResults> users;
     ImageView imgback;
 
 
@@ -63,13 +65,13 @@ public class PreviousTestResultsActivity extends AppCompatActivity {
 
     public void fetchNotification(){
         sharedPreferences =this.getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
-        String patientid = sharedPreferences.getString(KEY_NAME,null);
+        String patientid = sharedPreferences.getString(KEY_ID,null);
         apiInterface = NetworkClient.getClient().create(NetworkService.class);
 
-        Call<List<Users>> call = apiInterface.getNotification(patientid);
-        call.enqueue(new Callback<List<Users>>() {
+        Call<List<TestResults>> call = apiInterface.getTestResults(patientid);
+        call.enqueue(new Callback<List<TestResults>>() {
             @Override
-            public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
+            public void onResponse(Call<List<TestResults>> call, Response<List<TestResults>> response) {
                 users = response.body();
                 adapterPreviousResults = new AdapterPreviousResults(users,PreviousTestResultsActivity.this);
                 recyclerView.setAdapter(adapterPreviousResults);
@@ -78,7 +80,7 @@ public class PreviousTestResultsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Users>> call, Throwable t)
+            public void onFailure(Call<List<TestResults>> call, Throwable t)
             {
                 Toast.makeText(PreviousTestResultsActivity.this, "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
             }

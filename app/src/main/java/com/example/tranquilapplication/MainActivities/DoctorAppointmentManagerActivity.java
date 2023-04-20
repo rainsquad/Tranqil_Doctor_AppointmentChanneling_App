@@ -76,7 +76,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
         timeSlot.setText(c);
         ID.setText("APPOINTMENT ID "+String.valueOf(id));
         txtStatus.setText(d);
-        CallIdPatient.setText("Patient");
+        CallIdPatient.setText("Doctor");
 
 
         if (txtStatus.getText().toString().equals("APPOINTMENT STATUS : ACCEPTED"))
@@ -170,6 +170,8 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
 
                 if (value.equals("1")){
                     Toast.makeText(DoctorAppointmentManagerActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                    onBackPressed();
                 } else {
                     Toast.makeText(DoctorAppointmentManagerActivity.this, message, Toast.LENGTH_SHORT).show();
                 }
@@ -212,6 +214,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
 
                 if (value.equals("1")){
                     Toast.makeText(DoctorAppointmentManagerActivity.this, message, Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 } else {
                     Toast.makeText(DoctorAppointmentManagerActivity.this, message, Toast.LENGTH_SHORT).show();
                 }

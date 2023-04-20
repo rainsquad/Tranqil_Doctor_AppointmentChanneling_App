@@ -29,8 +29,7 @@ public class NotificationReminderBroadcadst extends BroadcastReceiver {
 
         sharedPreferences = context.getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String name = sharedPreferences.getString(KEY_NAME, null);
-        String doctor = sharedPreferences.getString(KEY_DOC_ID,null);
-        String date = sharedPreferences.getString(KEY_BOOKED_DATE,null);
+
 
 
         Intent i = new Intent(context, BookDoctorActivity.class);
@@ -40,7 +39,7 @@ public class NotificationReminderBroadcadst extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.baseline_add_alert_24)
                 .setContentTitle("Hi "+ name)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                .bigText("Appointment with "+doctor+" coming "+date))
+                .bigText("Make sure to take the screening test again in anther two weeks!"))
                 .setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
