@@ -67,7 +67,7 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
         String a = i.getStringExtra("pName");
         String b = i.getStringExtra("tMarks");
         String c = i.getStringExtra("tSlot");
-      int id = i.getIntExtra("AppointmentId",0);
+        int id = i.getIntExtra("AppointmentId",0);
         //String id = i.getStringExtra("AppointmentId");
         String d = i.getStringExtra("Status");
 

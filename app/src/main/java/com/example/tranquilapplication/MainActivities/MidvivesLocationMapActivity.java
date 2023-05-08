@@ -22,7 +22,7 @@ public class MidvivesLocationMapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_midvives_location_map);
+         setContentView(R.layout.activity_midvives_location_map);
         Direction1 = findViewById(R.id.GovernmentMidwiferyServiceAssociation);
         Direction2 = findViewById(R.id.PublicHealthMidwifeNawinna);
         Direction3 = findViewById(R.id.CastleStreetHospitalforWomen);

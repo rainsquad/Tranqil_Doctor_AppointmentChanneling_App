@@ -109,7 +109,6 @@ public class QuestionnaireActivity extends AppCompatActivity implements View.OnC
             public void onClick(View view) {
                 Intent intent = new Intent(QuestionnaireActivity.this, ScreenTestResutsActivity.class);
 
-
                 //get total marks and type of depression from previous activities
                 intent.putExtra("message", score);
                 intent.putExtra("depressionType", depressiontype.getText().toString());

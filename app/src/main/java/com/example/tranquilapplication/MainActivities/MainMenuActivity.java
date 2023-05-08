@@ -30,7 +30,8 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        //Getting Loged-in user using shared preferences
+
+
         getSupportFragmentManager().beginTransaction().replace(R.id.container,mainMenuFragment).commit();
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override

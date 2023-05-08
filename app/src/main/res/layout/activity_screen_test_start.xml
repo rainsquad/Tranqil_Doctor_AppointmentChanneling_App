@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
         android:layout_marginTop="40dp"
-        android:text="EPDS: POSTPARDUM DEPRESSION TEST"
+        android:text="Edinburgh Postnatal Depression Scale"
         android:textAlignment="center"
         android:textSize="18dp"
         android:textStyle="bold"

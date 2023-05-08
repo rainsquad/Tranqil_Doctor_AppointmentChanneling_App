@@ -113,6 +113,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Logging in...");
         progressDialog.setCancelable(false);
         progressDialog.show();
+
+
         NetworkService networkService = NetworkClient.getClient().create(NetworkService.class);
         Call<LoginResponseModel> login = networkService.login(inputEmail.getText().toString(), inputPassword.getText().toString());
         login.enqueue(new Callback<LoginResponseModel>() {

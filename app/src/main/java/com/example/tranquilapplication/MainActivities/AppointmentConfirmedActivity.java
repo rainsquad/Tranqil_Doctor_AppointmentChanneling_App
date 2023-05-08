@@ -23,6 +23,7 @@ public class AppointmentConfirmedActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AppointmentConfirmedActivity.this,MainMenuActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             }

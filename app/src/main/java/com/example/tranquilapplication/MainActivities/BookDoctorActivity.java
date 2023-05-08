@@ -195,7 +195,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
 
         if (ansA.isPressed()) {
-            PrefTimeSLotHidden.setText("9.00 am - 12.30 am");
+            PrefTimeSLotHidden.setText("9.00 am - 12.00 pm");
             ansA.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
 
             ansB.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round_grey));
@@ -203,14 +203,14 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
             ansA.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round_grey));
 
             ansB.setBackground(ContextCompat.getDrawable(this, R.drawable.button_round));
-            PrefTimeSLotHidden.setText("2.00 pm - 5.00pm");
+            PrefTimeSLotHidden.setText("2.00 pm - 5.00 pm");
         }
 
 
         if (clickedButton.getId() == R.id.btnBook) {
             testMarks.getText().toString();
 
-            if (PrefTimeSLotHidden.getText().toString().equals("9.00 am - 12.30 am")) {
+            if (PrefTimeSLotHidden.getText().toString().equals("9.00 am - 12.00 pm")) {
 
                 if (txt1.getText().toString().equals("3 SLOTS")) {
                     timeSlot1.setText("2 SLOTS");
@@ -221,10 +221,10 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     timeSlot2.setText(txt2.getText().toString());
                     checktestMrks();
                 } else if (txt1.getText().toString().equals("1 SLOTS")) {
-                    timeSlot1.setText("0 SLOTS");
+                    timeSlot1.setText("Fully Booked");
                     timeSlot2.setText(txt2.getText().toString());
                     checktestMrks();
-                } else if(txt1.getText().toString().equals("0 SLOTS")){
+                } else if(txt1.getText().toString().equals("Fully Booked")){
                     Toast.makeText(this, "NO MORNING SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
                     timeSlot1.setText("NO SLOTS");
                 }
@@ -240,11 +240,11 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     timeSlot1.setText(txt1.getText().toString());
                     checktestMrks();
                 } else if (txt2.getText().toString().equals("1 SLOTS")) {
-                    timeSlot2.setText("0 SLOTS");
+                    timeSlot2.setText("Fully Booked");
                     timeSlot1.setText(txt1.getText().toString());
                     checktestMrks();
-                } else if(txt2.getText().toString().equals("0 SLOTS")) {
-                    timeSlot2.setText("NO SLOTS");
+                } else if(txt2.getText().toString().equals("Fully Booked")) {
+                    timeSlot2.setText("Fully Booked");
                     Toast.makeText(this, "NO EVENING SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
 
                 }
@@ -273,14 +273,14 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
         if (testMarks.getText().toString().equals("0")) {
 
-            Toast.makeText(this, "Enter your test results ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid test results", Toast.LENGTH_SHORT).show();
         } else if (testMarks.getText().toString().isEmpty()) {
 
             Toast.makeText(this, "Enter your test results ", Toast.LENGTH_SHORT).show();
 
         } else if (score > 30) {
             Toast.makeText(this, "Your test marks should be between 9-30", Toast.LENGTH_SHORT).show();
-        } else if (score < 10) {
+        } else if (score < 9) {
             Toast.makeText(this, "Your test marks should be between 9-30", Toast.LENGTH_SHORT).show();
         } else if (PrefTimeSLotHidden.getText().toString().equals("")) {
             Toast.makeText(this, "Select a time slot", Toast.LENGTH_SHORT).show();
@@ -335,6 +335,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
 
                         Intent i = new Intent(BookDoctorActivity.this, AppointmentConfirmedActivity.class);
+
                         startActivity(i);
 
                         finish();
@@ -416,25 +417,25 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
 
 
 
-        if (slotsmorn.equals("0 SLOTS") && !slotseve.equals("0 SLOTS")) {
-            txt1.setText("0 SLOTS");
+        if (slotsmorn.equals("Fully Booked") && !slotseve.equals("Fully Booked")) {
+            txt1.setText("Fully Booked");
             txt2.setText(slotseve);
             ansA.setEnabled(false);
             ansB.setEnabled(true);
             Toast.makeText(this, "Morning session is fully booked!", Toast.LENGTH_SHORT).show();
 
-        } else if (slotseve.equals("0 SLOTS") && !slotsmorn.equals("0 SLOTS")) {
-            txt2.setText("0 SLOTS");
+        } else if (slotseve.equals("Fully Booked") && !slotsmorn.equals("Fully Booked")) {
+            txt2.setText("Fully Booked");
             txt1.setText(slotsmorn);
             ansB.setEnabled(false);
             ansA.setEnabled(true);
 
             Toast.makeText(this, "Evening session is fully booked!", Toast.LENGTH_SHORT).show();
 
-        } else if (slotseve.equals("0 SLOTS") && slotsmorn.equals("0 SLOTS")) {
+        } else if (slotseve.equals("Fully Booked") && slotsmorn.equals("Fully Booked")) {
 
-            txt2.setText("0 SLOTS");
-            txt1.setText("0 SLOTS");
+            txt2.setText("Fully Booked");
+            txt1.setText("Fully Booked");
             ansA.setEnabled(false);
             ansB.setEnabled(false);
 
