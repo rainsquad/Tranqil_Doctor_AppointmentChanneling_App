@@ -120,7 +120,7 @@
 
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="PND Awareness"
+                                android:text="EPDS Screening"
                                 android:gravity="center"
                                 android:textColor="#6f6f6f"
                                 android:textSize="14sp">
@@ -262,7 +262,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="PPD INFO"
+                                android:text="PND Awareness"
+                                android:gravity="center"
                                 android:textColor="#6f6f6f"
                                 android:textSize="16sp">
 

@@ -228,7 +228,7 @@ public class BookDoctorActivity extends AppCompatActivity implements View.OnClic
                     Toast.makeText(this, "NO MORNING SLOTS AVAILABLE TODAY", Toast.LENGTH_SHORT).show();
                     timeSlot1.setText("NO SLOTS");
                 }
-            } else if (PrefTimeSLotHidden.getText().toString().equals("2.00 pm - 5.00pm")) {
+            } else if (PrefTimeSLotHidden.getText().toString().equals("2.00 pm - 5.00 pm")) {
 
 
                 if (txt2.getText().toString().equals("3 SLOTS")) {
