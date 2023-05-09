@@ -39,7 +39,7 @@ public class NotificationReminderBroadcadst extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.baseline_add_alert_24)
                 .setContentTitle("Hi "+ name)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                .bigText("Make sure to take the screening test again in anther two weeks!"))
+                .bigText("It has been two weeks since you conducted the last screening test. This is a reminder for you to conduct a another test in order to ensure you are completely fine!"))
                 .setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
