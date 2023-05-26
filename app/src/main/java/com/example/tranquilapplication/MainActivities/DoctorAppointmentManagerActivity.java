@@ -231,8 +231,8 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
     void startService(String userID)
     {
         Application application = getApplication() ; // Android's application context
-        long appID = 705018974;   // yourAppID
-        String appSign ="c83717bc58d5fb0a2207999d980bb831d1f6305e2f6a90e6faf5e1a8b4061821";  // yourAppSign
+        long appID = 606704968;   // yourAppID
+        String appSign ="491646ccd1b0189c1260d666199d512d2b356e2bef4736361229c784dae121e8";  // yourAppSign
        // yourUserID, userID should only contain numbers, English characters, and '_'.
         String userName =userID;   // yourUserName
 

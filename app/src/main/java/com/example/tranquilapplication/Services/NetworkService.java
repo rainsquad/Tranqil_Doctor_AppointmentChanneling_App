@@ -22,7 +22,6 @@ import retrofit2.http.Query;
 
 public interface NetworkService {
     @FormUrlEncoded
-
     @POST("register.php")
     Call<RegistrationResponseModel> register(@FieldMap HashMap<String, String> params);
 

@@ -79,16 +79,9 @@ public class AdapterNotification extends RecyclerView.Adapter <AdapterNotificati
             appointmentId = itemView.findViewById(R.id.appID);
             btnVideoCall = itemView.findViewById(R.id.startVC);
             appointId2 = itemView.findViewById(R.id.appID2);
-
-
-
-
-        }
-
-
     }
 
 
-
+    }
 
 }

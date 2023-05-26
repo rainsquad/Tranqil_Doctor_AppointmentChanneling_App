@@ -35,8 +35,6 @@ public class NotificationFragment extends Fragment {
     SharedPreferences sharedPreferences;
     private List<Users> users;
 
-
-
     private RecyclerView.LayoutManager layoutManager;
     private NetworkService apiInterface;
     private AdapterNotification adapterNotification;

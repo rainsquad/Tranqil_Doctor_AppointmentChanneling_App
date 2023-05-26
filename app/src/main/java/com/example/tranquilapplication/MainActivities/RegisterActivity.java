@@ -59,7 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private String picture;
-    //private CircleImageView mPicture;
 
 
     @Override
