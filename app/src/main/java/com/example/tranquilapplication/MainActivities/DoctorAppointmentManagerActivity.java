@@ -231,11 +231,11 @@ public class DoctorAppointmentManagerActivity extends AppCompatActivity {
     void startService(String userID)
     {
         Application application = getApplication() ; // Android's application context
-        long appID = 606704968;   // yourAppID
-        String appSign ="491646ccd1b0189c1260d666199d512d2b356e2bef4736361229c784dae121e8";  // yourAppSign
+        long appID = 322567899;   // yourAppID
+        String appSign ="627cb0f4278939a5ac3021af6de632daf7f992ea0235fe4f588a5b0078bf5b58";  // yourAppSign
        // yourUserID, userID should only contain numbers, English characters, and '_'.
         String userName =userID;   // yourUserName
-
+        System.out.println(userID);
         ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
         callInvitationConfig.notifyWhenAppRunningInBackgroundOrQuit = true;
         ZegoNotificationConfig notificationConfig = new ZegoNotificationConfig();
